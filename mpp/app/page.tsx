@@ -69,7 +69,7 @@ const Home = () => {
           </li>
         ))}
       </ul>
-      Remove id
+      <p>Remove id</p>
       <input
         type="text"
         value={removeId}
