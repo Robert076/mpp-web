@@ -12,6 +12,7 @@ export default function DashboardPage() {
   const [actionType, setActionType] = useState("");
   const [category, setCategory] = useState("");
   const [effectiveRange, setEffectiveRange] = useState("");
+
   const test = () => {
     console.log("baa");
     toast.success("Gun added successfully");
@@ -23,8 +24,11 @@ export default function DashboardPage() {
         style={{
           backgroundColor: "#2b3137",
           width: "100vw",
-          height: "3.5vh",
+          height: "5vh",
           boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
         }}
       >
         <NavButtonDashboard onClick={test} text="Add gun" />
