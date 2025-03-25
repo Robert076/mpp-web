@@ -22,7 +22,7 @@ export const handleAddGun = (name: string, caliber: string, weight: string, acti
     return newGun;
   };
 
-export const handleGunSelect = (index: number, selectedIndex: number, setSelectedIndex: (index: number | null) => void) => {
+export const handleGunSelect = (index: number, selectedIndex: number | null, setSelectedIndex: (index: number | null) => void) => {
   if(index === selectedIndex) {
     setSelectedIndex(null);
   }

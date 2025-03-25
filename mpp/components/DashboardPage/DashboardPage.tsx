@@ -1,14 +1,19 @@
 "use client";
 import React, { useState } from "react";
 import NavButtonDashboard from "../NavButtonDashboard/NavButtonDashboard";
-import AddGunForm from "../AddGunForm/AddGunForm";
+import AddGunForm from "../Forms/AddGunForm/AddGunForm";
 import DarkBg from "../DarkBg/DarkBg";
 import GunComponent from "../GunComponent/GunComponent";
+import UpdateGunForm from "../Forms/UpdateGunForm/UpdateGunForm";
+import toast from "react-hot-toast";
+import { handleGunSelect } from "@/helpers";
 
 export default function DashboardPage() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
+  const [isOpenUpdate, setIsOpenUpdate] = useState(false);
   const [guns, setGuns] = useState<Gun[]>([]);
   const [selectedGunIndex, setSelectedGunIndex] = useState<number | null>(null);
+  const selectedGun = selectedGunIndex !== null ? guns[selectedGunIndex] : null;
 
   return (
     <div>
@@ -26,11 +31,22 @@ export default function DashboardPage() {
       >
         <NavButtonDashboard
           onClick={() => {
-            setIsOpenAdd(!isOpenAdd);
+            setIsOpenAdd(true);
+            setIsOpenUpdate(false);
           }}
           text="Add gun"
         />
-        <NavButtonDashboard text="Update gun" />
+        <NavButtonDashboard
+          onClick={() => {
+            if (selectedGun) {
+              setIsOpenAdd(false);
+              setIsOpenUpdate(true);
+            } else {
+              toast.error("You must select a gun first");
+            }
+          }}
+          text="Update gun"
+        />
         <NavButtonDashboard text="Delete gun" />
         <NavButtonDashboard text="Sort by name" />
         <NavButtonDashboard text="Sort by caliber" />
@@ -44,12 +60,22 @@ export default function DashboardPage() {
           />
         </>
       )}
+      {isOpenUpdate && (
+        <>
+          <DarkBg />
+          <UpdateGunForm
+            onClose={() => setIsOpenUpdate(false)}
+            onAddGun={(newGun) => setGuns([...guns, newGun])}
+            updatedGun={selectedGun}
+          />
+        </>
+      )}
       <div className="guns" style={{ width: "100%", padding: "20px" }}>
         {guns.map((gun, index) => (
           <div
             key={index}
             onClick={() => {
-              setSelectedGunIndex(index);
+              handleGunSelect(index, selectedGunIndex, setSelectedGunIndex);
             }}
           >
             <GunComponent
