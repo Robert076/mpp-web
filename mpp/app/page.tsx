@@ -1,10 +1,13 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import Input from "./components/Input";
+import SignIn from "./components/SignIn";
 
 const Home = () => {
-  const [name, setName] = useState("");
-  return <Input value={name} onChange={setName} label="test" />;
+  return (
+    <>
+      <SignIn />
+    </>
+  );
 };
 
 export default Home;
