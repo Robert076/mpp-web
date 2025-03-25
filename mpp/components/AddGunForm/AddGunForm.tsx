@@ -60,18 +60,48 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun }) => {
       <Input label="Action Type" value={actionType} onChange={setActionType} />
       <Input label="Category" value={category} onChange={setCategory} />
       <Input label="Effective range" value={effectiveRange} onChange={setEffectiveRange} />
-      <button
-        onClick={() => {
-          setName("M4A1-S"),
-            setCaliber("5.56"),
-            setWeight("2.1"),
-            setActionType("full-automatic"),
-            setCategory("Rifle"),
-            setEffectiveRange("1km");
-        }}
-      >
-        Quickadd
-      </button>
+
+      {/* THIS WILL BE REMOVED IN THE PROD */}
+      <div className="quickadds">
+        <button
+          onClick={() => {
+            setName("M4A1-S"),
+              setCaliber("5.56"),
+              setWeight("2.1"),
+              setActionType("full-automatic"),
+              setCategory("Rifle"),
+              setEffectiveRange("1000");
+          }}
+        >
+          Quickadd 1
+        </button>
+        <button
+          onClick={() => {
+            setName("AK-47"),
+              setCaliber("7.62"),
+              setWeight("1.6"),
+              setActionType("full-automatic"),
+              setCategory("Rifle"),
+              setEffectiveRange("900");
+          }}
+        >
+          Quickadd 2
+        </button>
+        <button
+          onClick={() => {
+            setName("USP-S"),
+              setCaliber("9"),
+              setWeight("0.4"),
+              setActionType("semi-automatic"),
+              setCategory("Pistol"),
+              setEffectiveRange("300");
+          }}
+        >
+          Quickadd 3
+        </button>
+      </div>
+      {/* THE ABOVE WILL BE REMOVED IN THE PROD */}
+
       <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
         <button
           style={{

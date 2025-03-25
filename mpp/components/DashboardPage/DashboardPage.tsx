@@ -45,7 +45,15 @@ export default function DashboardPage() {
       )}
       <div className="guns" style={{ width: "100%", padding: "20px" }}>
         {guns.map((gun, index) => (
-          <GunComponent key={index} />
+          <GunComponent
+            key={index}
+            name={gun.name}
+            weight={gun.weight}
+            actionType={gun.actionType}
+            caliber={gun.caliber}
+            category={gun.category}
+            effectiveRange={gun.effectiveRange}
+          />
         ))}
       </div>
     </div>
