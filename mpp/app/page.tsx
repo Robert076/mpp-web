@@ -1,13 +1,9 @@
 import React from "react";
-import Input from "./components/Input";
-import SignIn from "./components/SignIn";
+import Input from "../components/Input/Input";
+import SignIn from "../components/SignIn/SignIn";
 
 const Home = () => {
-  return (
-    <>
-      <SignIn />
-    </>
-  );
+  return <></>;
 };
 
 export default Home;
