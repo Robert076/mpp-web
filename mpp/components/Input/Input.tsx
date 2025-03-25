@@ -1,9 +1,12 @@
 import React from "react";
 
-const Input: React.FC<InputProps> = ({ label, value, placeholder, onChange }) => {
+const Input: React.FC<InputProps> = ({ label, value, placeholder, onChange, mandatory }) => {
   return (
     <div className="input" style={{ marginBottom: "15px" }}>
-      <p style={{ fontSize: "12px" }}>{label}</p>
+      <p style={{ fontSize: "12px" }}>
+        {label}
+        {mandatory ? "*" : ""}
+      </p>
       <input
         style={{
           borderRadius: "5px",

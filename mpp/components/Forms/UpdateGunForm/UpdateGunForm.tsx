@@ -38,6 +38,7 @@ const UpdateGunForm: React.FC<Props> = ({ onClose, onSetGuns, updatedGun, guns }
       }
       onSetGuns(newGuns);
       onClose();
+      toast.success("Gun updated successfully");
     } catch (error: any) {
       toast.error(error.message);
     }

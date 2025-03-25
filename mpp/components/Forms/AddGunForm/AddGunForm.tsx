@@ -25,6 +25,7 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun }) => {
       }
       onAddGun(newGun);
       onClose();
+      toast.success("Gun added successfully");
     } catch (error: any) {
       toast.error(error.message);
     }
@@ -54,10 +55,15 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun }) => {
       >
         Add Gun
       </h1>
-      <Input label="Name" value={name} onChange={setName} />
-      <Input label="Caliber" value={caliber} onChange={setCaliber} />
-      <Input label="Weight" value={weight} onChange={setWeight} />
-      <Input label="Action Type" value={actionType} onChange={setActionType} />
+      <Input label="Name" value={name} onChange={setName} mandatory={true} />
+      <Input label="Caliber" value={caliber} onChange={setCaliber} mandatory={true} />
+      <Input label="Weight" value={weight} onChange={setWeight} mandatory={true} />
+      <Input
+        label="Action Type"
+        value={actionType}
+        onChange={setActionType}
+        mandatory={true}
+      />
       <Input label="Category" value={category} onChange={setCategory} />
       <Input label="Effective range" value={effectiveRange} onChange={setEffectiveRange} />
 

@@ -3,6 +3,7 @@ interface InputProps {
     value: string | undefined;
     onChange: (value: string) => void;
     placeholder?: string;
+    mandatory?: boolean;
 }
 
 interface NavButtonDashboardProps{
