@@ -6,6 +6,7 @@ import NavButtonDashboard from "../NavButtonDashboard/NavButtonDashboard";
 import toast from "react-hot-toast";
 
 export default function DashboardPage() {
+  const [isOpenAdd, setIsOpenAdd] = useState(false);
   const [name, setName] = useState("");
   const [caliber, setCaliber] = useState("");
   const [weight, setWeight] = useState("");
@@ -31,12 +32,19 @@ export default function DashboardPage() {
           alignItems: "center",
         }}
       >
-        <NavButtonDashboard onClick={test} text="Add gun" />
+        <NavButtonDashboard
+          onClick={() => {
+            setIsOpenAdd(!isOpenAdd);
+            console.log(isOpenAdd);
+          }}
+          text="Add gun"
+        />
         <NavButtonDashboard text="Update gun" />
         <NavButtonDashboard text="Delete gun" />
         <NavButtonDashboard text="Sort by name" />
         <NavButtonDashboard text="Sort by caliber" />
       </div>
+      {isOpenAdd && <div>Open</div>}
     </div>
   );
 }
