@@ -28,7 +28,7 @@ async function Navbar() {
           color: "white",
         }}
       >
-        <p>{session?.user?.name}</p>
+        <p>Dashboard - {session?.user?.name}</p>
       </div>
       <div
         className="buttons"

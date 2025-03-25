@@ -2,9 +2,16 @@ import React from "react";
 
 const Input: React.FC<InputProps> = ({ label, value, placeholder, onChange }) => {
   return (
-    <div className="input">
-      <p>{label}</p>
+    <div className="input" style={{ marginBottom: "15px" }}>
+      <p style={{ fontSize: "12px" }}>{label}</p>
       <input
+        style={{
+          borderRadius: "5px",
+          border: "1px solid rgba(0, 0, 0, 0.1)",
+          padding: "3px 5px",
+          fontSize: "14px",
+          outline: "none",
+        }}
         type="text"
         value={value}
         placeholder={placeholder ? placeholder : ""}

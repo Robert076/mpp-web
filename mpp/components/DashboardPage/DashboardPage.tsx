@@ -1,23 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import { SignOut } from "../SignOut/SignOut";
-import { auth } from "@/auth";
 import NavButtonDashboard from "../NavButtonDashboard/NavButtonDashboard";
-import toast from "react-hot-toast";
+import AddGunForm from "../AddGunForm/AddGunForm";
+import DarkBg from "../DarkBg/DarkBg";
 
 export default function DashboardPage() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
-  const [name, setName] = useState("");
-  const [caliber, setCaliber] = useState("");
-  const [weight, setWeight] = useState("");
-  const [actionType, setActionType] = useState("");
-  const [category, setCategory] = useState("");
-  const [effectiveRange, setEffectiveRange] = useState("");
+  const [guns, setGuns] = useState<Gun[]>([]);
 
-  const test = () => {
-    console.log("baa");
-    toast.success("Gun added successfully");
-  };
   return (
     <div>
       <div
@@ -35,7 +25,6 @@ export default function DashboardPage() {
         <NavButtonDashboard
           onClick={() => {
             setIsOpenAdd(!isOpenAdd);
-            console.log(isOpenAdd);
           }}
           text="Add gun"
         />
@@ -44,7 +33,26 @@ export default function DashboardPage() {
         <NavButtonDashboard text="Sort by name" />
         <NavButtonDashboard text="Sort by caliber" />
       </div>
-      {isOpenAdd && <div>Open</div>}
+      {isOpenAdd && (
+        <div
+          style={{
+            height: "100vh",
+            width: "100vw",
+            zIndex: 1,
+            position: "fixed",
+            backgroundColor: "rgba(0, 0, 0, 0.3)",
+          }}
+        ></div>
+      )}
+      {isOpenAdd && (
+        <>
+          <DarkBg />
+          <AddGunForm
+            onClose={() => setIsOpenAdd(false)}
+            onAddGun={(newGun) => setGuns([...guns, newGun])}
+          />
+        </>
+      )}
     </div>
   );
 }
