@@ -46,6 +46,8 @@ export default function DashboardPage() {
               setIsOpenUpdate(true);
               setIsOpenDelete(false);
             } else {
+              setIsOpenAdd(false);
+              setIsOpenDelete(false);
               toast.error("You must select a gun first");
             }
           }}
@@ -58,6 +60,8 @@ export default function DashboardPage() {
               setIsOpenUpdate(false);
               setIsOpenDelete(true);
             } else {
+              setIsOpenAdd(false);
+              setIsOpenUpdate(false);
               toast.error("You must select a gun first");
             }
           }}
