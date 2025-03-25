@@ -8,6 +8,7 @@ import GunComponent from "../GunComponent/GunComponent";
 export default function DashboardPage() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
   const [guns, setGuns] = useState<Gun[]>([]);
+  const [selectedGunIndex, setSelectedGunIndex] = useState<number | null>(null);
 
   return (
     <div>
@@ -53,6 +54,7 @@ export default function DashboardPage() {
             caliber={gun.caliber}
             category={gun.category}
             effectiveRange={gun.effectiveRange}
+            selected={selectedGunIndex === index ? true : false}
           />
         ))}
       </div>

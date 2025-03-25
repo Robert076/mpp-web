@@ -7,6 +7,7 @@ const GunComponent: React.FC<Gun> = ({
   actionType,
   category,
   effectiveRange,
+  selected,
 }) => {
   const FONT_SIZE_PARAGRAPH = "13px";
   return (

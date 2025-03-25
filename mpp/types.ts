@@ -18,4 +18,5 @@ interface Gun{
     actionType: string;
     category?: string;
     effectiveRange?: number;
+    selected?: boolean;
 }
