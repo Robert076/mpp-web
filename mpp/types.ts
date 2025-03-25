@@ -1,6 +1,6 @@
 interface InputProps {
     label: string;
-    value: string;
+    value: string | undefined;
     onChange: (value: string) => void;
     placeholder?: string;
 }
@@ -16,7 +16,7 @@ interface Gun{
     caliber: number;
     weight: number;
     actionType: string;
-    category?: string;
-    effectiveRange?: number;
+    category?: string | undefined;
+    effectiveRange?: number | undefined;
     selected?: boolean;
 }

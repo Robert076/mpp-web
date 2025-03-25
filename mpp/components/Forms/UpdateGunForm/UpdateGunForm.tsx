@@ -1,30 +1,42 @@
 import React, { useState } from "react";
 import Input from "../../Input/Input";
 import toast from "react-hot-toast";
-import { handleAddGun } from "../../../helpers";
+import { handleAddGun, handleUpdateGun } from "../../../helpers";
 
 interface Props {
   onClose: () => void;
-  onAddGun: (gun: Gun) => void;
+  onSetGuns: (guns: Gun[]) => void;
   updatedGun: Gun | null;
+  guns: Gun[];
 }
 
-const UpdateGunForm: React.FC<Props> = ({ onClose, onAddGun, updatedGun }) => {
-  const [name, setName] = useState("");
-  const [caliber, setCaliber] = useState("");
-  const [weight, setWeight] = useState("");
-  const [actionType, setActionType] = useState("");
-  const [category, setCategory] = useState("");
-  const [effectiveRange, setEffectiveRange] = useState("");
+const UpdateGunForm: React.FC<Props> = ({ onClose, onSetGuns, updatedGun, guns }) => {
+  if (!updatedGun) {
+    return;
+  }
+  const [name, setName] = useState(updatedGun.name);
+  const [caliber, setCaliber] = useState(updatedGun.caliber.toString());
+  const [weight, setWeight] = useState(updatedGun.weight.toString());
+  const [actionType, setActionType] = useState(updatedGun.actionType);
+  const [category, setCategory] = useState(updatedGun.category?.toString());
+  const [effectiveRange, setEffectiveRange] = useState(updatedGun.effectiveRange?.toString());
 
   const handleSubmit = () => {
     try {
-      const newGun = handleAddGun(name, caliber, weight, actionType, category, effectiveRange);
-      if (newGun instanceof Error) {
-        toast.error(newGun.message);
+      const newGuns = handleUpdateGun(
+        guns,
+        name,
+        caliber,
+        weight,
+        actionType,
+        category,
+        effectiveRange
+      );
+      if (newGuns instanceof Error) {
+        toast.error(newGuns.message);
         return;
       }
-      onAddGun(newGun);
+      onSetGuns(newGuns);
       onClose();
     } catch (error: any) {
       toast.error(error.message);
@@ -59,8 +71,12 @@ const UpdateGunForm: React.FC<Props> = ({ onClose, onAddGun, updatedGun }) => {
       <Input label="Caliber" value={caliber} onChange={setCaliber} />
       <Input label="Weight" value={weight} onChange={setWeight} />
       <Input label="Action Type" value={actionType} onChange={setActionType} />
-      <Input label="Category" value={category} onChange={setCategory} />
-      <Input label="Effective range" value={effectiveRange} onChange={setEffectiveRange} />
+      <Input label="Category" value={category ? category : ""} onChange={setCategory} />
+      <Input
+        label="Effective range"
+        value={effectiveRange ? effectiveRange : ""}
+        onChange={setEffectiveRange}
+      />
 
       <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
         <button

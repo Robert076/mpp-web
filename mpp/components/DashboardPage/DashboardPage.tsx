@@ -65,7 +65,8 @@ export default function DashboardPage() {
           <DarkBg />
           <UpdateGunForm
             onClose={() => setIsOpenUpdate(false)}
-            onAddGun={(newGun) => setGuns([...guns, newGun])}
+            guns={guns}
+            onSetGuns={(guns) => setGuns([...guns])}
             updatedGun={selectedGun}
           />
         </>

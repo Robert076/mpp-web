@@ -19,7 +19,7 @@ const GunComponent: React.FC<Gun> = ({
         padding: "20px",
         boxSizing: "border-box",
         marginBottom: "10px",
-        background: "#f7f7f7",
+        background: "#fff",
         borderRadius: "5px",
         boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
         cursor: "pointer",
