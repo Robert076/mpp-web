@@ -8,7 +8,19 @@ export function SignOut() {
         await signOut({ redirectTo: "/login" });
       }}
     >
-      <button type="submit">Sign Out</button>
+      <button
+        type="submit"
+        style={{
+          border: "none",
+          backgroundColor: "#539BF5",
+          color: "white",
+          cursor: "pointer",
+          fontSize: "12px",
+          height: "100%",
+        }}
+      >
+        Sign Out
+      </button>
     </form>
   );
 }
