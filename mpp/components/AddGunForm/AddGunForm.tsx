@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Input from "../Input/Input";
 import toast from "react-hot-toast";
-import { handleAddGun } from "./helpers";
+import { handleAddGun } from "../../helpers";
 
 interface Props {
   onClose: () => void;
@@ -60,6 +60,18 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun }) => {
       <Input label="Action Type" value={actionType} onChange={setActionType} />
       <Input label="Category" value={category} onChange={setCategory} />
       <Input label="Effective range" value={effectiveRange} onChange={setEffectiveRange} />
+      <button
+        onClick={() => {
+          setName("M4A1-S"),
+            setCaliber("5.56"),
+            setWeight("2.1"),
+            setActionType("full-automatic"),
+            setCategory("Rifle"),
+            setEffectiveRange("1km");
+        }}
+      >
+        Quickadd
+      </button>
       <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
         <button
           style={{

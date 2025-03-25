@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import NavButtonDashboard from "../NavButtonDashboard/NavButtonDashboard";
 import AddGunForm from "../AddGunForm/AddGunForm";
 import DarkBg from "../DarkBg/DarkBg";
+import GunComponent from "../GunComponent/GunComponent";
 
 export default function DashboardPage() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -34,17 +35,6 @@ export default function DashboardPage() {
         <NavButtonDashboard text="Sort by caliber" />
       </div>
       {isOpenAdd && (
-        <div
-          style={{
-            height: "100vh",
-            width: "100vw",
-            zIndex: 1,
-            position: "fixed",
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
-          }}
-        ></div>
-      )}
-      {isOpenAdd && (
         <>
           <DarkBg />
           <AddGunForm
@@ -53,6 +43,11 @@ export default function DashboardPage() {
           />
         </>
       )}
+      <div className="guns" style={{ width: "100%", padding: "20px" }}>
+        {guns.map((gun, index) => (
+          <GunComponent key={index} />
+        ))}
+      </div>
     </div>
   );
 }
