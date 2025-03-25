@@ -4,3 +4,8 @@ interface InputProps {
     onChange: (value: string) => void;
     placeholder?: string;
 }
+
+interface NavButtonDashboardProps{
+    text: string;
+    onClick?: () => void;
+}

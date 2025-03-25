@@ -8,7 +8,7 @@ async function Navbar() {
     <div
       className="navbar"
       style={{
-        height: "5vh",
+        height: "6vh",
         padding: "0px 20px",
         width: "100vw",
         backgroundColor: "#539BF5",
@@ -16,6 +16,7 @@ async function Navbar() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        fontSize: "16px",
       }}
     >
       <div
@@ -25,7 +26,6 @@ async function Navbar() {
           display: "flex",
           alignItems: "center",
           color: "white",
-          fontSize: "14px",
         }}
       >
         <p>{session?.user?.name}</p>

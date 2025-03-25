@@ -15,7 +15,7 @@ export function SignOut() {
           backgroundColor: "#539BF5",
           color: "white",
           cursor: "pointer",
-          fontSize: "12px",
+          fontSize: "15px",
           height: "100%",
         }}
       >
