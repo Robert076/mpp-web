@@ -46,16 +46,22 @@ export default function DashboardPage() {
       )}
       <div className="guns" style={{ width: "100%", padding: "20px" }}>
         {guns.map((gun, index) => (
-          <GunComponent
+          <div
             key={index}
-            name={gun.name}
-            weight={gun.weight}
-            actionType={gun.actionType}
-            caliber={gun.caliber}
-            category={gun.category}
-            effectiveRange={gun.effectiveRange}
-            selected={selectedGunIndex === index ? true : false}
-          />
+            onClick={() => {
+              setSelectedGunIndex(index);
+            }}
+          >
+            <GunComponent
+              name={gun.name}
+              weight={gun.weight}
+              actionType={gun.actionType}
+              caliber={gun.caliber}
+              category={gun.category}
+              effectiveRange={gun.effectiveRange}
+              selected={selectedGunIndex === index ? true : false}
+            />
+          </div>
         ))}
       </div>
     </div>
