@@ -6,7 +6,13 @@ import DarkBg from "../DarkBg/DarkBg";
 import GunComponent from "../GunComponent/GunComponent";
 import UpdateGunForm from "../Forms/UpdateGunForm/UpdateGunForm";
 import toast from "react-hot-toast";
-import { handleGunSelect } from "@/helpers";
+import {
+  handleGunSelect,
+  sortByCaliberAsc,
+  sortByCaliberDesc,
+  sortByNameAsc,
+  sortByNameDesc,
+} from "@/helpers";
 import DeleteGunForm from "../Forms/DeleteGunForm/DeleteGunForm";
 
 export default function DashboardPage() {
@@ -15,6 +21,8 @@ export default function DashboardPage() {
   const [isOpenDelete, setIsOpenDelete] = useState(false);
   const [guns, setGuns] = useState<Gun[]>([]);
   const [selectedGunIndex, setSelectedGunIndex] = useState<number | null>(null);
+  const [lastSortByNameWasAscending, setLastSortByNameWasAscending] = useState(false);
+  const [lastSortByCaliberWasAscending, setLastSortByCaliberWasAscending] = useState(false);
   const selectedGun = selectedGunIndex !== null ? guns[selectedGunIndex] : null;
 
   return (
@@ -67,8 +75,32 @@ export default function DashboardPage() {
           }}
           text="Delete gun"
         />
-        <NavButtonDashboard text="Sort by name" />
-        <NavButtonDashboard text="Sort by caliber" />
+        <NavButtonDashboard
+          text="Sort by name"
+          onClick={() => {
+            if (lastSortByNameWasAscending) {
+              setGuns(sortByNameAsc(guns));
+              toast.success("Sorted by name in descending order");
+            } else {
+              setGuns(sortByNameDesc(guns));
+              toast.success("Sorted by name in ascending order");
+            }
+            setLastSortByNameWasAscending(!lastSortByNameWasAscending);
+          }}
+        />
+        <NavButtonDashboard
+          text="Sort by caliber"
+          onClick={() => {
+            if (lastSortByNameWasAscending) {
+              setGuns(sortByCaliberAsc(guns));
+              toast.success("Sorted by caliber in descending order");
+            } else {
+              setGuns(sortByCaliberDesc(guns));
+              toast.success("Sorted by caliber in ascending order");
+            }
+            setLastSortByNameWasAscending(!lastSortByNameWasAscending);
+          }}
+        />
       </div>
       {isOpenAdd && (
         <>

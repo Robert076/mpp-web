@@ -46,6 +46,7 @@ const DeleteGunForm: React.FC<Props> = ({ onClose, onDeleteGun, guns, deletedGun
       >
         Delete Gun
       </h1>
+      <p style={{ fontSize: "11px" }}>Are you sure? This cannot be undone.</p>
       <div
         style={{
           display: "flex",
