@@ -6,6 +6,7 @@ import DarkBg from "../DarkBg/DarkBg";
 import GunComponent from "../GunComponent/GunComponent";
 import UpdateGunForm from "../Forms/UpdateGunForm/UpdateGunForm";
 import toast from "react-hot-toast";
+import "./DashboardPage.css";
 import {
   handleGunSelect,
   sortByCaliberAsc,
@@ -34,11 +35,13 @@ export default function DashboardPage() {
         style={{
           backgroundColor: "#2b3137",
           width: "100vw",
+          overflowX: "auto",
           height: "5vh",
           boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
           display: "flex",
           justifyContent: "flex-start",
           alignItems: "center",
+          whiteSpace: "nowrap",
         }}
       >
         <NavButtonDashboard
@@ -103,7 +106,7 @@ export default function DashboardPage() {
             setLastSortByCaliberWasAscending(!lastSortByCaliberWasAscending);
           }}
         />
-        <NavButtonDashboard text="Highlight most expensive" />
+        <NavButtonDashboard text="Highlight biggest caliber" />
       </div>
       {isOpenAdd && (
         <>

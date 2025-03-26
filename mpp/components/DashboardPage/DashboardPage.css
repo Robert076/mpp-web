@@ -1,0 +1,8 @@
+.buttons {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer & Edge */
+  }
+  
+  .buttons::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
