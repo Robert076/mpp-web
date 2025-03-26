@@ -22,76 +22,71 @@ describe("handleGunSelect", () => {
 });
 
 describe("handleAddGun", () => {
-    it("should throw an error if the name length is less than 3 characters", () => {
-      const result = handleAddGun("ab", "5.5", "3", "bolt-action", "sniper", "200");
-      expect(result).toEqual(new Error("Gun name cannot be less than 3 characters"));
-    });
-    it("should throw an error if caliber is not a number", () => {
-        const result1 = handleAddGun("abc", "5.5d", "3", "bolt-action", "sniper", "200");
-        expect(result1).toEqual(new Error("Caliber must be a number"));
-        const result2 = handleAddGun("abc", "d", "3", "bolt-action", "sniper", "200");
-        expect(result2).toEqual(new Error("Caliber must be a number"));
-    })
-    it("should throw an error if weight is not a number", () => {
-        const result1 = handleAddGun("abc", "5.56", "3d", "bolt-action", "sniper", "200");
-        expect(result1).toEqual(new Error("Weight must be a number"));
-        const result2 = handleAddGun("abc", "5.56", "d", "bolt-action", "sniper", "200");
-        expect(result2).toEqual(new Error("Weight must be a number"));
-    })
-    it("should return the newly created gun when input is correct", () => {
-        const expectedGun = {
-            name: "M4A1-S",
-            caliber: 5.56,
-            weight: 2.1,
-            actionType: "fully-automatic",
-            category: "rifle",
-            effectiveRange: 1200,
-        }
-        const result = handleAddGun("M4A1-S", "5.56", "2.1", "fully-automatic", "rifle", "1200");
-        expect(result).toEqual(expectedGun)
-    })
+  it("should throw an error if the name length is less than 3 characters", () => {
+    expect(() => handleAddGun("ab", "5.5", "3", "bolt-action", "sniper", "200"))
+      .toThrow("Gun name cannot be less than 3 characters");
+  });
+
+  it("should throw an error if caliber is not a number", () => {
+    expect(() => handleAddGun("abc", "5.5d", "3", "bolt-action", "sniper", "200"))
+      .toThrow("Caliber must be a number");
+    expect(() => handleAddGun("abc", "d", "3", "bolt-action", "sniper", "200"))
+      .toThrow("Caliber must be a number");
+  });
+
+  it("should throw an error if weight is not a number", () => {
+    expect(() => handleAddGun("abc", "5.56", "3d", "bolt-action", "sniper", "200"))
+      .toThrow("Weight must be a number");
+    expect(() => handleAddGun("abc", "5.56", "d", "bolt-action", "sniper", "200"))
+      .toThrow("Weight must be a number");
+  });
+
+  it("should return the newly created gun when input is correct", () => {
+    const expectedGun = {
+      name: "M4A1-S",
+      caliber: 5.56,
+      weight: 2.1,
+      actionType: "fully-automatic",
+      category: "rifle",
+      effectiveRange: 1200,
+    };
+    const result = handleAddGun("M4A1-S", "5.56", "2.1", "fully-automatic", "rifle", "1200");
+    expect(result).toEqual(expectedGun);
+  });
 });
 
 describe("handleUpdateGun", () => {
-  it("should return an error if the gun is not found", () => {
+  it("should throw an error if the gun is not found", () => {
     const guns = [
       { name: "AK-47", caliber: 7.62, weight: 3.3, actionType: "gas-operated", category: "assault", effectiveRange: 800 },
     ];
-    const result = handleUpdateGun(guns, "M4A1", "5.56", "3.2", "gas-operated", "rifle", "900");
-    expect(result).toEqual(new Error("Gun not found"));
-  });
-
-  it("should throw an error if name length is less than 3 characters", () => {
-    const guns = [
-      { name: "AK-47", caliber: 7.62, weight: 3.3, actionType: "gas-operated", category: "assault", effectiveRange: 800 },
-    ];
-    const result = handleUpdateGun(guns, "AK", "5.56", "3.2", "gas-operated", "rifle", "900");
-    expect(result).toEqual(new Error("Gun not found"));
+    expect(() => handleUpdateGun(guns, "M4A1", "5.56", "3.2", "gas-operated", "rifle", "900"))
+      .toThrow("Gun not found");
   });
 
   it("should throw an error if caliber is not a number", () => {
     const guns = [
       { name: "AK-47", caliber: 7.62, weight: 3.3, actionType: "gas-operated", category: "assault", effectiveRange: 800 },
     ];
-    const result = handleUpdateGun(guns, "AK-47", "5.5d", "3.2", "gas-operated", "rifle", "900");
-    expect(result).toEqual(new Error("Caliber must be a number"));
+    expect(() => handleUpdateGun(guns, "AK-47", "5.5d", "3.2", "gas-operated", "rifle", "900"))
+      .toThrow("Caliber must be a number");
   });
 
   it("should throw an error if weight is not a number", () => {
     const guns = [
       { name: "AK-47", caliber: 7.62, weight: 3.3, actionType: "gas-operated", category: "assault", effectiveRange: 800 },
     ];
-    const result = handleUpdateGun(guns, "AK-47", "5.56", "3d", "gas-operated", "rifle", "900");
-    expect(result).toEqual(new Error("Weight must be a number"));
+    expect(() => handleUpdateGun(guns, "AK-47", "5.56", "3d", "gas-operated", "rifle", "900"))
+      .toThrow("Weight must be a number");
   });
 
-  it("should return updated guns array", () => {
+  it("should return updated guns array with updated fields except name", () => {
     const guns = [
       { name: "AK-47", caliber: 7.62, weight: 3.3, actionType: "gas-operated", category: "assault", effectiveRange: 800 },
     ];
-    const updatedGuns = handleUpdateGun(guns, "AK-47", "5.56", "3.5", "bolt-action", "rifle", "900");
+    const updatedGuns = handleUpdateGun(guns, "AK-47", "5.56", "3.5", "bolt-action", "sniper", "900");
     expect(updatedGuns).toEqual([
-      { name: "AK-47", caliber: 5.56, weight: 3.5, actionType: "bolt-action", category: "rifle", effectiveRange: 900 },
+      { name: "AK-47", caliber: 5.56, weight: 3.5, actionType: "bolt-action", category: "sniper", effectiveRange: 900 },
     ]);
   });
 });
@@ -133,9 +128,9 @@ describe("Sorting functions", () => {
 });
 
 describe("handleHighlighted", () => {
-  it("should return an error if there are no guns to highlight", () => {
-    const result = handleHighlighted([], jest.fn());
-    expect(result).toEqual(new Error("There are no guns to higlight"));
+  it("should throw an error if there are no guns to highlight", () => {
+    expect(() => handleHighlighted([], jest.fn()))
+      .toThrow("There are no guns to higlight");
   });
 
   it("should highlight the gun with the highest caliber", () => {

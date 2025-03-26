@@ -17,6 +17,7 @@ import {
 } from "@/helpers/helpers";
 import DeleteGunForm from "../Forms/DeleteGunForm/DeleteGunForm";
 import NavigationButtons from "../NavigationButtons/NavigationButtons";
+import { ITEMS_PER_PAGE } from "@/constants";
 
 export default function DashboardPage() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -30,6 +31,27 @@ export default function DashboardPage() {
   const [highlightedGunName, setHighlightedGunName] = useState<string | "">("");
 
   const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(guns.length / ITEMS_PER_PAGE);
+  const displayedGuns = guns.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
 
   const selectedGun =
     selectedGunName !== "" ? guns.filter((gun) => gun.name === selectedGunName)[0] : null; // it will only have one element since name is unique, and [0] to get it so we dont give a list
@@ -82,7 +104,7 @@ export default function DashboardPage() {
         </>
       )}
       <div className="guns" style={{ width: "100%", padding: "20px" }}>
-        {guns.map((gun) => (
+        {displayedGuns.map((gun) => (
           <div
             key={gun.name}
             onClick={() => {
@@ -101,6 +123,66 @@ export default function DashboardPage() {
             />
           </div>
         ))}
+      </div>
+      <div
+        className="pagination"
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <button
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+          style={{
+            padding: "5px 20px",
+            width: "100px",
+            border: "none",
+            background: "white",
+            borderRadius: "5px",
+            marginRight: "10px",
+          }}
+        >
+          Previous
+        </button>
+        {Array.from({ length: totalPages }, (_, index) => {
+          const page = index + 1;
+          if (page >= currentPage - 2 && page <= currentPage + 2) {
+            return (
+              <button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                disabled={currentPage === page}
+                style={{
+                  padding: "5px 10px",
+                  border: "none",
+                  background: "white",
+                  borderRadius: "5px",
+                }}
+              >
+                {page}
+              </button>
+            );
+          }
+          return null;
+        })}
+
+        <button
+          style={{
+            padding: "5px 20px",
+            width: "100px",
+            border: "none",
+            background: "white",
+            borderRadius: "5px",
+            marginLeft: "10px",
+          }}
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
       </div>
     </div>
   );

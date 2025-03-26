@@ -14,7 +14,6 @@ const UpdateGunForm: React.FC<Props> = ({ onClose, onSetGuns, updatedGun, guns }
   if (!updatedGun) {
     return;
   }
-  const [name, setName] = useState(updatedGun.name);
   const [caliber, setCaliber] = useState(updatedGun.caliber.toString());
   const [weight, setWeight] = useState(updatedGun.weight.toString());
   const [actionType, setActionType] = useState(updatedGun.actionType);
@@ -25,7 +24,7 @@ const UpdateGunForm: React.FC<Props> = ({ onClose, onSetGuns, updatedGun, guns }
     try {
       const newGuns = handleUpdateGun(
         guns,
-        name,
+        updatedGun.name,
         caliber,
         weight,
         actionType,
@@ -68,7 +67,7 @@ const UpdateGunForm: React.FC<Props> = ({ onClose, onSetGuns, updatedGun, guns }
       >
         Update {updatedGun?.name}
       </h1>
-      <Input label="Name" value={name} onChange={setName} />
+      <Input label="Name" value={updatedGun.name} onChange={() => {}} />
       <Input label="Caliber" value={caliber} onChange={setCaliber} />
       <Input label="Weight" value={weight} onChange={setWeight} />
       <Input label="Action Type" value={actionType} onChange={setActionType} />

@@ -79,7 +79,14 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun, guns }) => {
       <Input label="Effective range" value={effectiveRange} onChange={setEffectiveRange} />
 
       {/* THIS WILL BE REMOVED IN THE PROD */}
-      <div className="quickadds">
+      <div
+        className="quickadds"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <button
           onClick={() => {
             setName("M4A1-S"),
