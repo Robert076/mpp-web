@@ -5,10 +5,13 @@ export default function middleware(request: NextRequest) {
     if(!sessionToken) {
         return NextResponse.redirect(new URL("/login", request.url));
     }
+    if(sessionToken && (request.nextUrl.pathname === "/login" || request.nextUrl.pathname === "/")) {
+        return NextResponse.redirect(new URL("/dashboard", request.url));
+    }
 
     return NextResponse.next();
 }
 
 export const config = {
-    matcher: ["/dashboard"],
+    matcher: ["/dashboard", "/", "/login"],
   };

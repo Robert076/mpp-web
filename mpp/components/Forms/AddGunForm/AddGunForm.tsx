@@ -6,9 +6,10 @@ import { handleAddGun } from "../../../helpers";
 interface Props {
   onClose: () => void;
   onAddGun: (gun: Gun) => void;
+  guns: Gun[];
 }
 
-const AddGunForm: React.FC<Props> = ({ onClose, onAddGun }) => {
+const AddGunForm: React.FC<Props> = ({ onClose, onAddGun, guns }) => {
   const [name, setName] = useState("");
   const [caliber, setCaliber] = useState("");
   const [weight, setWeight] = useState("");
@@ -23,9 +24,19 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun }) => {
         toast.error(newGun.message);
         return;
       }
-      onAddGun(newGun);
-      onClose();
-      toast.success("Gun added successfully");
+      let isThereAlreadyAGunWithThisName = false;
+      guns.forEach((gun) => {
+        if (gun.name === name) {
+          isThereAlreadyAGunWithThisName = true;
+        }
+      });
+      if (!isThereAlreadyAGunWithThisName) {
+        onAddGun(newGun);
+        onClose();
+        toast.success("Gun added successfully");
+      } else {
+        toast.error(`There already is a gun with the name ${name}`);
+      }
     } catch (error: any) {
       toast.error(error.message);
     }

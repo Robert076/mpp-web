@@ -20,10 +20,11 @@ export default function DashboardPage() {
   const [isOpenUpdate, setIsOpenUpdate] = useState(false);
   const [isOpenDelete, setIsOpenDelete] = useState(false);
   const [guns, setGuns] = useState<Gun[]>([]);
-  const [selectedGunIndex, setSelectedGunIndex] = useState<number | null>(null);
+  const [selectedGunName, setSelectedGunName] = useState<string | "">("");
   const [lastSortByNameWasAscending, setLastSortByNameWasAscending] = useState(false);
   const [lastSortByCaliberWasAscending, setLastSortByCaliberWasAscending] = useState(false);
-  const selectedGun = selectedGunIndex !== null ? guns[selectedGunIndex] : null;
+  const selectedGun =
+    selectedGunName !== "" ? guns.filter((gun) => gun.name === selectedGunName)[0] : null; // it will only have one element since name is unique, and [0] to get it so we dont give a list
 
   return (
     <div>
@@ -108,6 +109,7 @@ export default function DashboardPage() {
           <AddGunForm
             onClose={() => setIsOpenAdd(false)}
             onAddGun={(newGun) => setGuns([...guns, newGun])}
+            guns={guns}
           />
         </>
       )}
@@ -134,11 +136,11 @@ export default function DashboardPage() {
         </>
       )}
       <div className="guns" style={{ width: "100%", padding: "20px" }}>
-        {guns.map((gun, index) => (
+        {guns.map((gun) => (
           <div
-            key={index}
+            key={gun.name}
             onClick={() => {
-              handleGunSelect(index, selectedGunIndex, setSelectedGunIndex);
+              handleGunSelect(gun.name, selectedGunName, setSelectedGunName);
             }}
           >
             <GunComponent
@@ -148,7 +150,7 @@ export default function DashboardPage() {
               caliber={gun.caliber}
               category={gun.category}
               effectiveRange={gun.effectiveRange}
-              selected={selectedGunIndex === index ? true : false}
+              selected={selectedGunName === gun.name ? true : false}
             />
           </div>
         ))}

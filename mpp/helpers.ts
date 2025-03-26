@@ -22,13 +22,16 @@ export const handleAddGun = (name: string, caliber: string, weight: string, acti
   return newGun;
 };
 
-export const handleGunSelect = (index: number, selectedIndex: number | null, setSelectedIndex: (index: number | null) => void) => {
-if(index === selectedIndex) {
-  setSelectedIndex(null);
-}
-else {
-  setSelectedIndex(index);
-}
+export const handleGunSelect = (name: string, selectedName: string, setSelectedName: (name: string) => void) => {
+  if(name == "") {
+    return;
+  }
+  if(name === selectedName) {
+  setSelectedName("");
+  }
+  else {
+    setSelectedName(name);
+  }
 }
 
 export const handleUpdateGun = (
