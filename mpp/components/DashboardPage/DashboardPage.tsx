@@ -14,7 +14,7 @@ import {
   sortByCaliberDesc,
   sortByNameAsc,
   sortByNameDesc,
-} from "@/helpers";
+} from "@/helpers/helpers";
 import DeleteGunForm from "../Forms/DeleteGunForm/DeleteGunForm";
 
 export default function DashboardPage() {

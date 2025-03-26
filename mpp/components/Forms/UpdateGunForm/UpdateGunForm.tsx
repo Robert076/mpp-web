@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Input from "../../Input/Input";
 import toast from "react-hot-toast";
-import { handleAddGun, handleUpdateGun } from "../../../helpers";
+import { handleAddGun, handleUpdateGun } from "../../../helpers/helpers";
 
 interface Props {
   onClose: () => void;
