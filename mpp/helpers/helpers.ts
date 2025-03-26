@@ -145,3 +145,19 @@ export const handleHighlighted = (guns: Gun[], setHighlightedGunName: (name: str
 
   return biggestCaliberGun?.name;
 }
+
+export const handlePageChange = (page: number, setCurrentPage: (newPage: number) => void) => {
+  setCurrentPage(page);
+};
+
+export const handleNextPage = (currentPage: number, totalPages: number, setCurrentPage: (newPage: number) => void) => {
+  if (currentPage < totalPages) {
+    setCurrentPage(currentPage + 1);
+  }
+};
+
+export const handlePreviousPage = (currentPage: number, totalPages: number, setCurrentPage: (newPage: number) => void) => {
+  if (currentPage > 1) {
+    setCurrentPage(currentPage - 1);
+  }
+};

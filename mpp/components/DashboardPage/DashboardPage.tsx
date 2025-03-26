@@ -10,6 +10,9 @@ import "./DashboardPage.css";
 import {
   handleGunSelect,
   handleHighlighted,
+  handleNextPage,
+  handlePageChange,
+  handlePreviousPage,
   sortByCaliberAsc,
   sortByCaliberDesc,
   sortByNameAsc,
@@ -36,22 +39,6 @@ export default function DashboardPage() {
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
-
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const handlePreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
 
   const selectedGun =
     selectedGunName !== "" ? guns.filter((gun) => gun.name === selectedGunName)[0] : null; // it will only have one element since name is unique, and [0] to get it so we dont give a list
@@ -134,7 +121,9 @@ export default function DashboardPage() {
         }}
       >
         <button
-          onClick={handlePreviousPage}
+          onClick={() => {
+            handlePreviousPage(currentPage, totalPages, setCurrentPage);
+          }}
           disabled={currentPage === 1}
           style={{
             padding: "5px 20px",
@@ -153,7 +142,7 @@ export default function DashboardPage() {
             return (
               <button
                 key={page}
-                onClick={() => handlePageChange(page)}
+                onClick={() => handlePageChange(page, setCurrentPage)}
                 disabled={currentPage === page}
                 style={{
                   padding: "5px 10px",
@@ -178,7 +167,9 @@ export default function DashboardPage() {
             borderRadius: "5px",
             marginLeft: "10px",
           }}
-          onClick={handleNextPage}
+          onClick={() => {
+            handleNextPage(currentPage, totalPages, setCurrentPage);
+          }}
           disabled={currentPage === totalPages}
         >
           Next
