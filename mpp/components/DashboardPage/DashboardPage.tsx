@@ -93,7 +93,7 @@ export default function DashboardPage() {
         <NavButtonDashboard
           text="Sort by caliber"
           onClick={() => {
-            if (lastSortByNameWasAscending) {
+            if (lastSortByCaliberWasAscending) {
               setGuns(sortByCaliberAsc(guns));
               toast.success("Sorted by caliber in descending order");
             } else {
