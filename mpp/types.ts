@@ -20,4 +20,5 @@ interface Gun{
     category?: string | undefined;
     effectiveRange?: number | undefined;
     selected?: boolean;
+    highlighted?: boolean;
 }

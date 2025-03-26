@@ -35,30 +35,30 @@ export const handleGunSelect = (name: string, selectedName: string, setSelectedN
 }
 
 export const handleUpdateGun = (
-guns: Gun[],
-name: string,
-caliber: string,
-weight: string,
-actionType: string,
-category: string | undefined,
-effectiveRange: string | undefined
-) => {
-// Find the index of the gun with the matching name
-const gunIndex = guns.findIndex((gun) => gun.name === name);
+  guns: Gun[],
+  name: string,
+  caliber: string,
+  weight: string,
+  actionType: string,
+  category: string | undefined,
+  effectiveRange: string | undefined
+  ) => {
+  // Find the index of the gun with the matching name
+  const gunIndex = guns.findIndex((gun) => gun.name === name);
 
-if (gunIndex === -1) {
-  return new Error("Gun not found");
-}
+  if (gunIndex === -1) {
+    return new Error("Gun not found");
+  }
 
-// Validate inputs
-if (name.length < 3) {
-  return new Error("Gun name cannot be less than 3 characters");
-}
-if (!isNumber(caliber)) {
-  return new Error("Caliber must be a number");
-}
-if (!isNumber(weight)) {
-  return new Error("Weight must be a number");
+  // Validate inputs
+  if (name.length < 3) {
+    return new Error("Gun name cannot be less than 3 characters");
+  }
+  if (!isNumber(caliber)) {
+    return new Error("Caliber must be a number");
+  }
+  if (!isNumber(weight)) {
+    return new Error("Weight must be a number");
 }
 
 // Create the updated gun object
@@ -128,4 +128,19 @@ export const sortByCaliberDesc = (guns: Gun[]) => {
     return 0;
   })
   return sortedArray;
+}
+
+export const handleHighlighted = (guns: Gun[], setHighlightedGunName: (name: string) => void, ) => {
+  if (guns.length === 0) {
+    return new Error("There are no guns to higlight");
+  }
+  
+  const highestCaliber = Math.max(...guns.map((gun) => gun.caliber));
+  const biggestCaliberGun = guns.find((gun) => gun.caliber === highestCaliber);
+
+  if (biggestCaliberGun) {
+    setHighlightedGunName(biggestCaliberGun.name);
+  }
+
+  return biggestCaliberGun?.name;
 }

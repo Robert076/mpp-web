@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import "./DashboardPage.css";
 import {
   handleGunSelect,
+  handleHighlighted,
   sortByCaliberAsc,
   sortByCaliberDesc,
   sortByNameAsc,
@@ -24,6 +25,7 @@ export default function DashboardPage() {
   const [selectedGunName, setSelectedGunName] = useState<string | "">("");
   const [lastSortByNameWasAscending, setLastSortByNameWasAscending] = useState(false);
   const [lastSortByCaliberWasAscending, setLastSortByCaliberWasAscending] = useState(false);
+  const [highlightedGunName, setHighlightedGunName] = useState<string | "">("");
 
   const selectedGun =
     selectedGunName !== "" ? guns.filter((gun) => gun.name === selectedGunName)[0] : null; // it will only have one element since name is unique, and [0] to get it so we dont give a list
@@ -106,7 +108,17 @@ export default function DashboardPage() {
             setLastSortByCaliberWasAscending(!lastSortByCaliberWasAscending);
           }}
         />
-        <NavButtonDashboard text="Highlight biggest caliber" />
+        <NavButtonDashboard
+          text="Highlight biggest caliber"
+          onClick={() => {
+            try {
+              const highlightedGunName = handleHighlighted(guns, setHighlightedGunName);
+              toast.success(`Highlighted gun with name ${highlightedGunName}`);
+            } catch (error: any) {
+              toast.error(error.message);
+            }
+          }}
+        />
       </div>
       {isOpenAdd && (
         <>
@@ -156,6 +168,7 @@ export default function DashboardPage() {
               category={gun.category}
               effectiveRange={gun.effectiveRange}
               selected={selectedGunName === gun.name ? true : false}
+              highlighted={highlightedGunName === gun.name ? true : false}
             />
           </div>
         ))}
