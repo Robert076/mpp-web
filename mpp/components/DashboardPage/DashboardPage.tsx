@@ -16,110 +16,39 @@ import {
   sortByNameDesc,
 } from "@/helpers/helpers";
 import DeleteGunForm from "../Forms/DeleteGunForm/DeleteGunForm";
+import NavigationButtons from "../NavigationButtons/NavigationButtons";
 
 export default function DashboardPage() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
   const [isOpenUpdate, setIsOpenUpdate] = useState(false);
   const [isOpenDelete, setIsOpenDelete] = useState(false);
+
   const [guns, setGuns] = useState<Gun[]>([]);
   const [selectedGunName, setSelectedGunName] = useState<string | "">("");
   const [lastSortByNameWasAscending, setLastSortByNameWasAscending] = useState(false);
   const [lastSortByCaliberWasAscending, setLastSortByCaliberWasAscending] = useState(false);
   const [highlightedGunName, setHighlightedGunName] = useState<string | "">("");
 
+  const [currentPage, setCurrentPage] = useState(1);
+
   const selectedGun =
     selectedGunName !== "" ? guns.filter((gun) => gun.name === selectedGunName)[0] : null; // it will only have one element since name is unique, and [0] to get it so we dont give a list
 
   return (
     <div>
-      <div
-        className="buttons"
-        style={{
-          backgroundColor: "#2b3137",
-          width: "100vw",
-          overflowX: "auto",
-          height: "5vh",
-          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-          display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          whiteSpace: "nowrap",
-        }}
-      >
-        <NavButtonDashboard
-          onClick={() => {
-            setIsOpenAdd(true);
-            setIsOpenUpdate(false);
-            setIsOpenDelete(false);
-          }}
-          text="Add gun"
-        />
-        <NavButtonDashboard
-          onClick={() => {
-            if (selectedGun) {
-              setIsOpenAdd(false);
-              setIsOpenUpdate(true);
-              setIsOpenDelete(false);
-            } else {
-              setIsOpenAdd(false);
-              setIsOpenDelete(false);
-              toast.error("You must select a gun first");
-            }
-          }}
-          text="Update gun"
-        />
-        <NavButtonDashboard
-          onClick={() => {
-            if (selectedGun) {
-              setIsOpenAdd(false);
-              setIsOpenUpdate(false);
-              setIsOpenDelete(true);
-            } else {
-              setIsOpenAdd(false);
-              setIsOpenUpdate(false);
-              toast.error("You must select a gun first");
-            }
-          }}
-          text="Delete gun"
-        />
-        <NavButtonDashboard
-          text="Sort by name"
-          onClick={() => {
-            if (lastSortByNameWasAscending) {
-              setGuns(sortByNameAsc(guns));
-              toast.success("Sorted by name in descending order");
-            } else {
-              setGuns(sortByNameDesc(guns));
-              toast.success("Sorted by name in ascending order");
-            }
-            setLastSortByNameWasAscending(!lastSortByNameWasAscending);
-          }}
-        />
-        <NavButtonDashboard
-          text="Sort by caliber"
-          onClick={() => {
-            if (lastSortByCaliberWasAscending) {
-              setGuns(sortByCaliberAsc(guns));
-              toast.success("Sorted by caliber in descending order");
-            } else {
-              setGuns(sortByCaliberDesc(guns));
-              toast.success("Sorted by caliber in ascending order");
-            }
-            setLastSortByCaliberWasAscending(!lastSortByCaliberWasAscending);
-          }}
-        />
-        <NavButtonDashboard
-          text="Highlight biggest caliber"
-          onClick={() => {
-            try {
-              const highlightedGunName = handleHighlighted(guns, setHighlightedGunName);
-              toast.success(`Highlighted gun with name ${highlightedGunName}`);
-            } catch (error: any) {
-              toast.error(error.message);
-            }
-          }}
-        />
-      </div>
+      <NavigationButtons
+        setIsOpenAdd={setIsOpenAdd}
+        setIsOpenUpdate={setIsOpenUpdate}
+        setIsOpenDelete={setIsOpenDelete}
+        setGuns={setGuns}
+        guns={guns}
+        selectedGun={selectedGun}
+        setLastSortByCaliberWasAscending={setLastSortByCaliberWasAscending}
+        setLastSortByNameWasAscending={setLastSortByNameWasAscending}
+        lastSortByCaliberWasAscending={lastSortByCaliberWasAscending}
+        lastSortByNameWasAscending={lastSortByNameWasAscending}
+        setHighlightedGunName={setHighlightedGunName}
+      />
       {isOpenAdd && (
         <>
           <DarkBg />

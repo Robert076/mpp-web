@@ -132,7 +132,7 @@ export const sortByCaliberDesc = (guns: Gun[]) => {
 
 export const handleHighlighted = (guns: Gun[], setHighlightedGunName: (name: string) => void, ) => {
   if (guns.length === 0) {
-    return new Error("There are no guns to higlight");
+    throw new Error("There are no guns to higlight");
   }
   
   const highestCaliber = Math.max(...guns.map((gun) => gun.caliber));

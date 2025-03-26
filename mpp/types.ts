@@ -22,3 +22,17 @@ interface Gun{
     selected?: boolean;
     highlighted?: boolean;
 }
+
+interface NavigationButtonsProps{
+    setIsOpenAdd: (value: boolean) => void;
+    setIsOpenUpdate: (value: boolean) => void;
+    setIsOpenDelete: (value: boolean) => void;
+    setGuns: (guns: Gun[]) => void;
+    guns: Gun[];
+    selectedGun: Gun | null;
+    lastSortByNameWasAscending: boolean;
+    lastSortByCaliberWasAscending: boolean;
+    setHighlightedGunName: (newName: string) => void;
+    setLastSortByNameWasAscending: (value: boolean) => void;
+    setLastSortByCaliberWasAscending: (value: boolean) => void;
+}
