@@ -35,4 +35,13 @@ interface NavigationButtonsProps{
     setHighlightedGunName: (newName: string) => void;
     setLastSortByNameWasAscending: (value: boolean) => void;
     setLastSortByCaliberWasAscending: (value: boolean) => void;
+    setShowGuns: (value: boolean) => void;
+    showGuns: boolean;
+}
+
+interface CaliberChartDataProps {
+    data: {
+        caliber: number;
+        count: number;
+    }[]
 }

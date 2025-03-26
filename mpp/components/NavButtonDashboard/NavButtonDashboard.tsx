@@ -8,7 +8,7 @@ const NavButtonDashboard: React.FC<NavButtonDashboardProps> = ({ text, onClick }
         background: "transparent",
         color: "white",
         border: "none",
-        padding: "0 15px",
+        padding: "0 28px",
         fontSize: "13px",
         height: "100%",
       }}

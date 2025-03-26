@@ -22,6 +22,8 @@ const NavigationButtons: React.FC<NavigationButtonsProps> = ({
   setLastSortByNameWasAscending,
   setLastSortByCaliberWasAscending,
   setHighlightedGunName,
+  setShowGuns,
+  showGuns,
 }) => {
   return (
     <div
@@ -240,6 +242,12 @@ const NavigationButtons: React.FC<NavigationButtonsProps> = ({
             newGun15,
           ]);
           toast.success(`Added 15 guns`);
+        }}
+      />
+      <NavButtonDashboard
+        text="Caliber chart"
+        onClick={() => {
+          setShowGuns(!showGuns);
         }}
       />
     </div>
