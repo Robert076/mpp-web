@@ -23,6 +23,7 @@ export default function DashboardPage() {
   const [selectedGunName, setSelectedGunName] = useState<string | "">("");
   const [lastSortByNameWasAscending, setLastSortByNameWasAscending] = useState(false);
   const [lastSortByCaliberWasAscending, setLastSortByCaliberWasAscending] = useState(false);
+
   const selectedGun =
     selectedGunName !== "" ? guns.filter((gun) => gun.name === selectedGunName)[0] : null; // it will only have one element since name is unique, and [0] to get it so we dont give a list
 
@@ -99,9 +100,10 @@ export default function DashboardPage() {
               setGuns(sortByCaliberDesc(guns));
               toast.success("Sorted by caliber in ascending order");
             }
-            setLastSortByNameWasAscending(!lastSortByNameWasAscending);
+            setLastSortByCaliberWasAscending(!lastSortByCaliberWasAscending);
           }}
         />
+        <NavButtonDashboard text="Highlight most expensive" />
       </div>
       {isOpenAdd && (
         <>
