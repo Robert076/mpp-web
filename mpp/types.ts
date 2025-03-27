@@ -20,7 +20,8 @@ interface Gun{
     category?: string | undefined;
     effectiveRange?: number | undefined;
     selected?: boolean;
-    highlighted?: boolean;
+    highlightedBlue?: boolean;
+    highlightedRed?: boolean;
 }
 
 interface NavigationButtonsProps{
@@ -32,11 +33,14 @@ interface NavigationButtonsProps{
     selectedGun: Gun | null;
     lastSortByNameWasAscending: boolean;
     lastSortByCaliberWasAscending: boolean;
-    setHighlightedGunName: (newName: string) => void;
+    setHighlightedGunNameBiggestCaliber: (newName: string) => void;
+    setHighlightedGunNameSmallestCaliber: (newName: string) => void;
     setLastSortByNameWasAscending: (value: boolean) => void;
     setLastSortByCaliberWasAscending: (value: boolean) => void;
     setShowGuns: (value: boolean) => void;
     showGuns: boolean;
+    showOnlyRifles: boolean;
+    setShowOnlyRifles: (value: boolean) => void; 
 }
 
 interface CaliberChartDataProps {

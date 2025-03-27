@@ -3,11 +3,12 @@ import NavButtonDashboard from "../NavButtonDashboard/NavButtonDashboard";
 import toast from "react-hot-toast";
 import {
   handleAddGun,
-  handleHighlighted,
+  handleHighlightedBig,
   sortByCaliberAsc,
   sortByCaliberDesc,
   sortByNameAsc,
   sortByNameDesc,
+  handleHighlightedSmall,
 } from "@/helpers/helpers";
 
 const NavigationButtons: React.FC<NavigationButtonsProps> = ({
@@ -21,9 +22,12 @@ const NavigationButtons: React.FC<NavigationButtonsProps> = ({
   lastSortByCaliberWasAscending,
   setLastSortByNameWasAscending,
   setLastSortByCaliberWasAscending,
-  setHighlightedGunName,
+  setHighlightedGunNameBiggestCaliber,
+  setHighlightedGunNameSmallestCaliber,
   setShowGuns,
   showGuns,
+  showOnlyRifles,
+  setShowOnlyRifles,
 }) => {
   return (
     <div
@@ -106,11 +110,34 @@ const NavigationButtons: React.FC<NavigationButtonsProps> = ({
         text="Highlight biggest caliber"
         onClick={() => {
           try {
-            const highlightedGunName = handleHighlighted(guns, setHighlightedGunName);
+            const highlightedGunName = handleHighlightedBig(
+              guns,
+              setHighlightedGunNameBiggestCaliber
+            );
             toast.success(`Highlighted gun with name ${highlightedGunName}`);
           } catch (error: any) {
             toast.error(error.message);
           }
+        }}
+      />
+      <NavButtonDashboard
+        text="Highlight smallest caliber"
+        onClick={() => {
+          try {
+            const highlightedGunName = handleHighlightedSmall(
+              guns,
+              setHighlightedGunNameSmallestCaliber
+            );
+            toast.success(`Highlighted gun with name ${highlightedGunName}`);
+          } catch (error: any) {
+            toast.error(error.message);
+          }
+        }}
+      />
+      <NavButtonDashboard
+        text="Filter only Rifles"
+        onClick={() => {
+          setShowOnlyRifles(!showOnlyRifles);
         }}
       />
       {/* DELETE THIS IN PROD */}

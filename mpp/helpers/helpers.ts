@@ -44,14 +44,13 @@ export const handleUpdateGun = (
   category: string | undefined,
   effectiveRange: string | undefined
   ) => {
-  // Find the index of the gun with the matching name
+
   const gunIndex = guns.findIndex((gun) => gun.name === name);
 
   if (gunIndex === -1) {
     throw new Error("Gun not found");
   }
 
-  // Validate inputs
   if (name.length < 3) {
     throw new Error("Gun name cannot be less than 3 characters");
   }
@@ -62,7 +61,6 @@ export const handleUpdateGun = (
     throw new Error("Weight must be a number");
 }
 
-// Create the updated gun object
 const updatedGun: Gun = {
   name,
   caliber: parseFloat(caliber),
@@ -72,11 +70,10 @@ const updatedGun: Gun = {
   effectiveRange: effectiveRange ? parseFloat(effectiveRange) : -1,
 };
 
-// Update the gun in the guns array
 const updatedGuns = [...guns];
 updatedGuns[gunIndex] = updatedGun;
 
-return updatedGuns; // Return the updated guns array
+return updatedGuns; 
 };
 
 export const sortByNameAsc = (guns: Gun[]) => {
@@ -131,7 +128,7 @@ export const sortByCaliberDesc = (guns: Gun[]) => {
   return sortedArray;
 }
 
-export const handleHighlighted = (guns: Gun[], setHighlightedGunName: (name: string) => void, ) => {
+export const handleHighlightedBig = (guns: Gun[], setHighlightedGunName: (name: string) => void, ) => {
   if (guns.length === 0) {
     throw new Error("There are no guns to higlight");
   }
@@ -144,6 +141,21 @@ export const handleHighlighted = (guns: Gun[], setHighlightedGunName: (name: str
   }
 
   return biggestCaliberGun?.name;
+}
+
+export const handleHighlightedSmall = (guns: Gun[], setHighlightedGunName: (name: string) => void, ) => {
+  if (guns.length === 0) {
+    throw new Error("There are no guns to higlight");
+  }
+  
+  const smallestCaliber = Math.min(...guns.map((gun) => gun.caliber));
+  const smallestCaliberGun = guns.find((gun) => gun.caliber === smallestCaliber);
+
+  if (smallestCaliberGun) {
+    setHighlightedGunName(smallestCaliberGun.name);
+  }
+
+  return smallestCaliberGun?.name;
 }
 
 export const handlePageChange = (page: number, setCurrentPage: (newPage: number) => void) => {
