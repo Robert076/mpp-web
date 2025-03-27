@@ -200,10 +200,15 @@ export default function DashboardPage() {
           style={{
             width: "100vw",
             display: "flex",
-            justifyContent: "flex-start",
+            justifyContent: "center",
             alignItems: "center",
+            textAlign: "center",
+            flexDirection: "column",
+            padding: "20px",
+            border: "1px solid red",
           }}
         >
+          <h1 style={{ fontWeight: 500, fontSize: "18px" }}>Guns by caliber chart</h1>
           <CaliberChart data={chartData} />
         </div>
       )}
