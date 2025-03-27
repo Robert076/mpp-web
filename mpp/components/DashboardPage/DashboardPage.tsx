@@ -154,9 +154,17 @@ export default function DashboardPage() {
             >
               Previous
             </button>
-            {Array.from({ length: totalPages }, (_, index) => {
-              const page = index + 1;
-              if (page >= currentPage - 2 && page <= currentPage + 2) {
+            {(() => {
+              let startPage = Math.max(1, currentPage - 2);
+              let endPage = startPage + 4;
+
+              if (endPage > totalPages) {
+                endPage = totalPages;
+                startPage = Math.max(1, endPage - 4);
+              }
+
+              return Array.from({ length: endPage - startPage + 1 }, (_, index) => {
+                const page = startPage + index;
                 return (
                   <button
                     key={page}
@@ -165,16 +173,16 @@ export default function DashboardPage() {
                     style={{
                       padding: "5px 10px",
                       border: "none",
-                      background: "white",
+                      backgroundColor: "transparent",
+                      color: currentPage === page ? "lightgray" : "black",
                       borderRadius: "5px",
                     }}
                   >
                     {page}
                   </button>
                 );
-              }
-              return null;
-            })}
+              });
+            })()}
 
             <button
               style={{
