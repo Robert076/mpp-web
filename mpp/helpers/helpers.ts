@@ -1,4 +1,4 @@
-function isNumber(numStr: string) {
+export function isNumber(numStr: string) {
   return !isNaN(parseFloat(numStr)) && !isNaN(+numStr);
 }
 export const handleAddGun = (name: string, caliber: string, weight: string, actionType: string, category: string | undefined, effectiveRange: string | undefined) => {

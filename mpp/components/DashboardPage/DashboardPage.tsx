@@ -29,8 +29,7 @@ export default function DashboardPage() {
   const [isOpenUpdate, setIsOpenUpdate] = useState(false);
   const [isOpenDelete, setIsOpenDelete] = useState(false);
 
-  const [showGuns, setShowGuns] = useState(true); // initially show guns, but if user goes on statistics dont show them
-
+  const [showGuns, setShowGuns] = useState(true);
   const [guns, setGuns] = useState<Gun[]>([]);
   const [selectedGunName, setSelectedGunName] = useState<string | "">("");
   const [lastSortByNameWasAscending, setLastSortByNameWasAscending] = useState(false);
@@ -42,6 +41,24 @@ export default function DashboardPage() {
     string | ""
   >("");
   const [showOnlyRifles, setShowOnlyRifles] = useState(false);
+
+  useEffect(() => {
+    const fetchGuns = async () => {
+      try {
+        const response = await fetch("/api/guns");
+        if (!response.ok) {
+          throw new Error("Failed to fetch guns");
+        }
+        const data = await response.json();
+        setGuns(data);
+      } catch (error) {
+        console.error("Error fetching guns:", error);
+        toast.error("Failed to load guns.");
+      }
+    };
+
+    fetchGuns();
+  }, []);
 
   const caliberCounts = guns.reduce((acc, gun) => {
     acc[gun.caliber] = (acc[gun.caliber] || 0) + 1;
@@ -72,7 +89,7 @@ export default function DashboardPage() {
   );
 
   const selectedGun =
-    selectedGunName !== "" ? guns.filter((gun) => gun.name === selectedGunName)[0] : null; // it will only have one element since name is unique, and [0] to get it so we dont give a list
+    selectedGunName !== "" ? guns.find((gun) => gun.name === selectedGunName) : null;
 
   return (
     <div>
@@ -135,12 +152,13 @@ export default function DashboardPage() {
               )
               .map((gun) => (
                 <div
-                  key={gun.name}
+                  key={gun.id}
                   onClick={() => {
                     handleGunSelect(gun.name, selectedGunName, setSelectedGunName);
                   }}
                 >
                   <GunComponent
+                    id={gun.id}
                     name={gun.name}
                     weight={gun.weight}
                     actionType={gun.actionType}

@@ -13,6 +13,7 @@ interface NavButtonDashboardProps{
 }
 
 interface Gun{
+    id?: number;
     name: string;
     caliber: number;
     weight: number;
@@ -30,7 +31,7 @@ interface NavigationButtonsProps{
     setIsOpenDelete: (value: boolean) => void;
     setGuns: (guns: Gun[]) => void;
     guns: Gun[];
-    selectedGun: Gun | null;
+    selectedGun: Gun | null | undefined;
     lastSortByNameWasAscending: boolean;
     lastSortByCaliberWasAscending: boolean;
     setHighlightedGunNameBiggestCaliber: (newName: string) => void;

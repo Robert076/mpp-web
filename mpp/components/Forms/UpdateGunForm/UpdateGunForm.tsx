@@ -6,7 +6,7 @@ import { handleAddGun, handleUpdateGun } from "../../../helpers/helpers";
 interface Props {
   onClose: () => void;
   onSetGuns: (guns: Gun[]) => void;
-  updatedGun: Gun | null;
+  updatedGun: Gun | null | undefined;
   guns: Gun[];
 }
 
