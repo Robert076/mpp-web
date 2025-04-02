@@ -9,7 +9,6 @@ interface InputProps {
 interface NavButtonDashboardProps{
     text: string;
     onClick?: () => void;
-
 }
 
 interface Gun{
