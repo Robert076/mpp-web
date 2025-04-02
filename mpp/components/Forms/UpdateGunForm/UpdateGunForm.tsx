@@ -5,12 +5,11 @@ import { handleAddGun, handleUpdateGun } from "../../../helpers/helpers";
 
 interface Props {
   onClose: () => void;
-  onSetGuns: (guns: Gun[]) => void;
   updatedGun: Gun | null | undefined;
   guns: Gun[];
 }
 
-const UpdateGunForm: React.FC<Props> = ({ onClose, onSetGuns, updatedGun, guns }) => {
+const UpdateGunForm: React.FC<Props> = ({ onClose, updatedGun, guns }) => {
   if (!updatedGun) {
     return;
   }
@@ -20,7 +19,7 @@ const UpdateGunForm: React.FC<Props> = ({ onClose, onSetGuns, updatedGun, guns }
   const [category, setCategory] = useState(updatedGun.category?.toString());
   const [effectiveRange, setEffectiveRange] = useState(updatedGun.effectiveRange?.toString());
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     try {
       const newGuns = handleUpdateGun(
         guns,
@@ -35,7 +34,6 @@ const UpdateGunForm: React.FC<Props> = ({ onClose, onSetGuns, updatedGun, guns }
         toast.error(newGuns.message);
         return;
       }
-      onSetGuns(newGuns);
       onClose();
       toast.success("Gun updated successfully");
     } catch (error: any) {

@@ -24,12 +24,25 @@ export async function POST(request: Request) {
     try {
       const body = await request.json();
       const { name, caliber, weight, actionType, category, effectiveRange } = body;
-  
+
       if (!name || !caliber || !weight || !actionType || name.length < 3 || !isNumber(caliber) || !isNumber(weight) || (effectiveRange && !isNumber(effectiveRange))) {
         return NextResponse.json(
           { error: 'Bad request: Either null fields or invalid data' },
           { status: 400 }
         );
+      }
+
+      const checkIfGunWithSameNameExistsAlreadyQuery = `
+            SELECT * FROM "Gun" WHERE name=$1
+      `
+      const paramsForCheckingIfGunWithSameNameAlreadyExists = [name];
+      const doesGunWithSameNameAlreadyExist = await pool.query(checkIfGunWithSameNameExistsAlreadyQuery, paramsForCheckingIfGunWithSameNameAlreadyExists);
+
+      if (doesGunWithSameNameAlreadyExist.rows.length > 0) {
+        return NextResponse.json(
+            { error: `Gun with the name ${doesGunWithSameNameAlreadyExist.rows[0].name} already exists`},
+            { status: 409 }
+        )
       }
 
       const query = `
@@ -38,7 +51,6 @@ export async function POST(request: Request) {
         RETURNING *;
       `;
       const values = [name, caliber, weight, actionType, category || null, effectiveRange || null];
-  
       const res = await pool.query(query, values);
   
       return NextResponse.json(res.rows[0], { status: 201 });
@@ -47,3 +59,32 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
 }
+
+export async function PUT(request: Request) {
+    try {
+        const body = await request.json();
+        const { name, caliber, weight, actionType, category, effectiveRange } = body;
+
+        const checkIfGunWithSameNameExistsAlreadyQuery = `
+            SELECT * FROM "Gun" WHERE name=$1
+        `
+        const paramsForCheckingIfGunWithSameNameAlreadyExists = [name];
+        const doesGunWithSameNameAlreadyExist = await pool.query(checkIfGunWithSameNameExistsAlreadyQuery, paramsForCheckingIfGunWithSameNameAlreadyExists);
+
+        if (doesGunWithSameNameAlreadyExist.rows.length === 0) {
+            return NextResponse.json(
+                { error: `The name of the gun you are trying to update doesn't exist` },
+                { status: 404 }
+            )
+        }
+
+        const query = `UPDATE "Gun" SET caliber=$2 weight=$3 actionType=$4 category=$5 effectiveRange=$6 WHERE name=$1`;
+        const values = [name, caliber, weight, actionType, category || null, effectiveRange || null];
+        const res = await pool.query(query, values);
+        return NextResponse.json(res.rows[0], { status: 201 });
+
+    } catch (error) {
+        return NextResponse.json({error: 'Internal server error'}, { status: 500 })
+    }
+}
+

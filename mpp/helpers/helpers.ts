@@ -1,17 +1,25 @@
 export function isNumber(numStr: string) {
   return !isNaN(parseFloat(numStr)) && !isNaN(+numStr);
 }
-export const handleAddGun = (name: string, caliber: string, weight: string, actionType: string, category: string | undefined, effectiveRange: string | undefined) => {
+export const handleAddGun = async (
+  name: string,
+  caliber: string,
+  weight: string,
+  actionType: string,
+  category: string | undefined,
+  effectiveRange: string | undefined
+) => {
   if (name.length < 3) {
     throw new Error("Gun name cannot be less than 3 characters");
   }
-  if (!isNumber(caliber)) {
+  if (isNaN(Number(caliber))) {
     throw new Error("Caliber must be a number");
   }
-  if (!isNumber(weight)) {
+  if (isNaN(Number(weight))) {
     throw new Error("Weight must be a number");
   }
-  const newGun: Gun = {
+
+  const newGun = {
     name,
     caliber: parseFloat(caliber),
     weight: parseFloat(weight),
@@ -20,8 +28,26 @@ export const handleAddGun = (name: string, caliber: string, weight: string, acti
     effectiveRange: effectiveRange ? parseFloat(effectiveRange) : -1,
   };
 
-  return newGun;
+  try {
+    const response = await fetch("/api/guns", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newGun),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to add gun");
+    }
+
+    const data = await response.json();
+    return data; 
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
 };
+
 
 export const handleGunSelect = (name: string, selectedName: string, setSelectedName: (name: string) => void) => {
   if(name == "") {
@@ -35,7 +61,7 @@ export const handleGunSelect = (name: string, selectedName: string, setSelectedN
   }
 }
 
-export const handleUpdateGun = (
+export const handleUpdateGun = async (
   guns: Gun[],
   name: string,
   caliber: string,
@@ -70,10 +96,24 @@ const updatedGun: Gun = {
   effectiveRange: effectiveRange ? parseFloat(effectiveRange) : -1,
 };
 
-const updatedGuns = [...guns];
-updatedGuns[gunIndex] = updatedGun;
+try {
+  const response = await fetch("/api/guns", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedGun),
+  });
 
-return updatedGuns; 
+  if (!response.ok) {
+    throw new Error("Failed to add gun");
+  }
+
+  const data = await response.json();
+  return data; 
+} catch (error: any) {
+  throw new Error(error.message);
+}
 };
 
 export const sortByNameAsc = (guns: Gun[]) => {

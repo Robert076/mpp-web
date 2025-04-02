@@ -127,7 +127,6 @@ export default function DashboardPage() {
           <UpdateGunForm
             onClose={() => setIsOpenUpdate(false)}
             guns={guns}
-            onSetGuns={(guns) => setGuns([...guns])}
             updatedGun={selectedGun}
           />
         </>
