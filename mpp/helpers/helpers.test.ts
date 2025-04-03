@@ -1,4 +1,4 @@
-import { handleGunSelect, handleAddGun, handleUpdateGun, sortByNameAsc, sortByNameDesc, sortByCaliberAsc, sortByCaliberDesc, handleHighlighted } from "./helpers";
+import { handleGunSelect, handleAddGun, handleUpdateGun, sortByNameAsc, sortByNameDesc, sortByCaliberAsc, sortByCaliberDesc, handleHighlightedBig } from "./helpers";
 import { jest } from '@jest/globals';
 
 describe("handleGunSelect", () => {
@@ -129,13 +129,13 @@ describe("Sorting functions", () => {
 
 describe("handleHighlighted", () => {
   it("should throw an error if there are no guns to highlight", () => {
-    expect(() => handleHighlighted([], jest.fn()))
+    expect(() => handleHighlightedBig([], jest.fn()))
       .toThrow("There are no guns to higlight");
   });
 
   it("should highlight the gun with the highest caliber", () => {
     const setHighlightedGunName = jest.fn();
-    const result = handleHighlighted(
+    const result = handleHighlightedBig(
       [
         { name: "AK-47", caliber: 7.62, weight: 3.3, actionType: "gas-operated", category: "assault", effectiveRange: 800 },
         { name: "M4A1", caliber: 5.56, weight: 2.9, actionType: "gas-operated", category: "assault", effectiveRange: 1000 },
