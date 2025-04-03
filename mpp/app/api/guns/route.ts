@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { Pool } from 'pg';
 import { isNumber } from "@/helpers/helpers";
 
@@ -97,6 +97,39 @@ export async function PUT(request: Request) {
     const res = await pool.query(query, values);
 
     return NextResponse.json(res.rows[0], { status: 201 });
+  } catch (error) {
+    console.error('Error updating data:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: Request) {
+  try {
+    const body = await request.json();
+    const { name } = body;
+
+    const checkIfGunWithSameNameExistsAlreadyQuery = `
+          SELECT * FROM "Gun" WHERE name=$1
+    `
+
+    const paramsForCheckingIfGunWithSameNameAlreadyExists = [name];
+    const doesGunWithSameNameAlreadyExist = await pool.query(checkIfGunWithSameNameExistsAlreadyQuery, paramsForCheckingIfGunWithSameNameAlreadyExists);
+
+    if (doesGunWithSameNameAlreadyExist.rows.length === 0) {
+      return NextResponse.json(
+          { error: `You can only delete already existing guns.`},
+          { status: 409 }
+      )
+    }
+
+    const query = `
+      DELETE FROM "Gun" WHERE name = $1 RETURNING *;
+    `
+    const params = [ name ];
+    const res = await pool.query(query, params);
+
+    return NextResponse.json(res.rows[0], { status: 201 })
+
   } catch (error) {
     console.error('Error updating data:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
