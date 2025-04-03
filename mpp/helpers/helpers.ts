@@ -106,7 +106,7 @@ try {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to add gun");
+    throw new Error("Failed to update gun");
   }
 
   const data = await response.json();
@@ -115,6 +115,29 @@ try {
   throw new Error(error.message);
 }
 };
+
+export const handleDelete = async (
+  name: string
+) => {
+  try {
+    const response = await fetch("/api/guns", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({"name": name}),
+    });
+
+    if (!response.ok) {
+      throw new Error(`${response.status}`);
+    }
+
+    const data = await response.json();
+    return data; 
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+}
 
 export const sortByNameAsc = (guns: Gun[]) => {
   const sortedArray: Gun[] = [...guns].sort((gun1, gun2) => {

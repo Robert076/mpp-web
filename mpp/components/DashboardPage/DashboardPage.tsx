@@ -8,6 +8,7 @@ import UpdateGunForm from "../Forms/UpdateGunForm/UpdateGunForm";
 import toast from "react-hot-toast";
 import "./DashboardPage.css";
 import {
+  handleDelete,
   handleGunSelect,
   handleHighlightedBig,
   handleHighlightedSmall,
@@ -138,7 +139,9 @@ export default function DashboardPage() {
             onClose={() => setIsOpenDelete(false)}
             guns={guns}
             deletedGun={selectedGun}
-            onDeleteGun={(guns) => setGuns([...guns])}
+            onDeleteGun={() => {
+              if (selectedGun) handleDelete(selectedGun.name);
+            }}
           />
         </>
       )}
