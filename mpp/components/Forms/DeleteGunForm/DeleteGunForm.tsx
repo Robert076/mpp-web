@@ -6,7 +6,7 @@ interface Props {
   onClose: () => void;
   onDeleteGun: (guns: Gun[]) => void;
   guns: Gun[];
-  deletedGun: Gun | null;
+  deletedGun: Gun | null | undefined;
 }
 
 const DeleteGunForm: React.FC<Props> = ({ onClose, onDeleteGun, guns, deletedGun }) => {

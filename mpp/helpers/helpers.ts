@@ -1,17 +1,25 @@
-function isNumber(numStr: string) {
+export function isNumber(numStr: string) {
   return !isNaN(parseFloat(numStr)) && !isNaN(+numStr);
 }
-export const handleAddGun = (name: string, caliber: string, weight: string, actionType: string, category: string | undefined, effectiveRange: string | undefined) => {
+export const handleAddGun = async (
+  name: string,
+  caliber: string,
+  weight: string,
+  actionType: string,
+  category: string | undefined,
+  effectiveRange: string | undefined
+) => {
   if (name.length < 3) {
     throw new Error("Gun name cannot be less than 3 characters");
   }
-  if (!isNumber(caliber)) {
+  if (isNaN(Number(caliber))) {
     throw new Error("Caliber must be a number");
   }
-  if (!isNumber(weight)) {
+  if (isNaN(Number(weight))) {
     throw new Error("Weight must be a number");
   }
-  const newGun: Gun = {
+
+  const newGun = {
     name,
     caliber: parseFloat(caliber),
     weight: parseFloat(weight),
@@ -20,8 +28,26 @@ export const handleAddGun = (name: string, caliber: string, weight: string, acti
     effectiveRange: effectiveRange ? parseFloat(effectiveRange) : -1,
   };
 
-  return newGun;
+  try {
+    const response = await fetch("/api/guns", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newGun),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to add gun");
+    }
+
+    const data = await response.json();
+    return data; 
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
 };
+
 
 export const handleGunSelect = (name: string, selectedName: string, setSelectedName: (name: string) => void) => {
   if(name == "") {
@@ -35,7 +61,7 @@ export const handleGunSelect = (name: string, selectedName: string, setSelectedN
   }
 }
 
-export const handleUpdateGun = (
+export const handleUpdateGun = async (
   guns: Gun[],
   name: string,
   caliber: string,
@@ -44,14 +70,13 @@ export const handleUpdateGun = (
   category: string | undefined,
   effectiveRange: string | undefined
   ) => {
-  // Find the index of the gun with the matching name
+
   const gunIndex = guns.findIndex((gun) => gun.name === name);
 
   if (gunIndex === -1) {
     throw new Error("Gun not found");
   }
 
-  // Validate inputs
   if (name.length < 3) {
     throw new Error("Gun name cannot be less than 3 characters");
   }
@@ -62,7 +87,6 @@ export const handleUpdateGun = (
     throw new Error("Weight must be a number");
 }
 
-// Create the updated gun object
 const updatedGun: Gun = {
   name,
   caliber: parseFloat(caliber),
@@ -72,11 +96,24 @@ const updatedGun: Gun = {
   effectiveRange: effectiveRange ? parseFloat(effectiveRange) : -1,
 };
 
-// Update the gun in the guns array
-const updatedGuns = [...guns];
-updatedGuns[gunIndex] = updatedGun;
+try {
+  const response = await fetch("/api/guns", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedGun),
+  });
 
-return updatedGuns; // Return the updated guns array
+  if (!response.ok) {
+    throw new Error("Failed to add gun");
+  }
+
+  const data = await response.json();
+  return data; 
+} catch (error: any) {
+  throw new Error(error.message);
+}
 };
 
 export const sortByNameAsc = (guns: Gun[]) => {
@@ -131,7 +168,7 @@ export const sortByCaliberDesc = (guns: Gun[]) => {
   return sortedArray;
 }
 
-export const handleHighlighted = (guns: Gun[], setHighlightedGunName: (name: string) => void, ) => {
+export const handleHighlightedBig = (guns: Gun[], setHighlightedGunName: (name: string) => void, ) => {
   if (guns.length === 0) {
     throw new Error("There are no guns to higlight");
   }
@@ -144,6 +181,21 @@ export const handleHighlighted = (guns: Gun[], setHighlightedGunName: (name: str
   }
 
   return biggestCaliberGun?.name;
+}
+
+export const handleHighlightedSmall = (guns: Gun[], setHighlightedGunName: (name: string) => void, ) => {
+  if (guns.length === 0) {
+    throw new Error("There are no guns to higlight");
+  }
+  
+  const smallestCaliber = Math.min(...guns.map((gun) => gun.caliber));
+  const smallestCaliberGun = guns.find((gun) => gun.caliber === smallestCaliber);
+
+  if (smallestCaliberGun) {
+    setHighlightedGunName(smallestCaliberGun.name);
+  }
+
+  return smallestCaliberGun?.name;
 }
 
 export const handlePageChange = (page: number, setCurrentPage: (newPage: number) => void) => {

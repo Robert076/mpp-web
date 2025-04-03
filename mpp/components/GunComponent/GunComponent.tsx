@@ -8,16 +8,25 @@ const GunComponent: React.FC<Gun> = ({
   category,
   effectiveRange,
   selected,
-  highlighted,
+  highlightedBlue,
+  highlightedRed,
 }) => {
   const FONT_SIZE_PARAGRAPH = "13px";
   const border = selected ? "2px solid #539BF5" : "2px solid #f7f7f7";
-  const backgroundColor = highlighted ? "rgba(83, 156, 245, 0.16)" : "#f7f7f7";
+  const backgroundColor = highlightedBlue
+    ? "rgba(83, 156, 245, 0.16)"
+    : highlightedRed
+    ? "rgba(245, 83, 83, 0.16)"
+    : "#f7f7f7";
   return (
     <div
       style={{
         width: "100%",
-        border: highlighted ? "2px solid rgba(83, 156, 245, 0.16)" : border,
+        border: highlightedBlue
+          ? "2px solid rgba(83, 156, 245, 0.16)"
+          : highlightedRed
+          ? "2px solid rgba(245, 83, 83, 0.16)"
+          : border,
         padding: "20px",
         boxSizing: "border-box",
         marginBottom: "10px",

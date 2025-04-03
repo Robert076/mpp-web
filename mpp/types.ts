@@ -9,10 +9,10 @@ interface InputProps {
 interface NavButtonDashboardProps{
     text: string;
     onClick?: () => void;
-
 }
 
 interface Gun{
+    id?: number;
     name: string;
     caliber: number;
     weight: number;
@@ -20,7 +20,8 @@ interface Gun{
     category?: string | undefined;
     effectiveRange?: number | undefined;
     selected?: boolean;
-    highlighted?: boolean;
+    highlightedBlue?: boolean;
+    highlightedRed?: boolean;
 }
 
 interface NavigationButtonsProps{
@@ -29,14 +30,17 @@ interface NavigationButtonsProps{
     setIsOpenDelete: (value: boolean) => void;
     setGuns: (guns: Gun[]) => void;
     guns: Gun[];
-    selectedGun: Gun | null;
+    selectedGun: Gun | null | undefined;
     lastSortByNameWasAscending: boolean;
     lastSortByCaliberWasAscending: boolean;
-    setHighlightedGunName: (newName: string) => void;
+    setHighlightedGunNameBiggestCaliber: (newName: string) => void;
+    setHighlightedGunNameSmallestCaliber: (newName: string) => void;
     setLastSortByNameWasAscending: (value: boolean) => void;
     setLastSortByCaliberWasAscending: (value: boolean) => void;
     setShowGuns: (value: boolean) => void;
     showGuns: boolean;
+    showOnlyRifles: boolean;
+    setShowOnlyRifles: (value: boolean) => void; 
 }
 
 interface CaliberChartDataProps {

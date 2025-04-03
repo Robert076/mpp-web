@@ -17,26 +17,25 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun, guns }) => {
   const [category, setCategory] = useState("");
   const [effectiveRange, setEffectiveRange] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     try {
-      const newGun = handleAddGun(name, caliber, weight, actionType, category, effectiveRange);
-      if (newGun instanceof Error) {
-        toast.error(newGun.message);
+      const newGun = await handleAddGun(
+        name,
+        caliber,
+        weight,
+        actionType,
+        category,
+        effectiveRange
+      );
+
+      if (!newGun) {
+        toast.error("Failed to add gun");
         return;
       }
-      let isThereAlreadyAGunWithThisName = false;
-      guns.forEach((gun) => {
-        if (gun.name === name) {
-          isThereAlreadyAGunWithThisName = true;
-        }
-      });
-      if (!isThereAlreadyAGunWithThisName) {
-        onAddGun(newGun);
-        onClose();
-        toast.success("Gun added successfully");
-      } else {
-        toast.error(`There already is a gun with the name ${name}`);
-      }
+
+      onAddGun(newGun);
+      onClose();
+      toast.success("Gun added successfully");
     } catch (error: any) {
       toast.error(error.message);
     }

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavButtonDashboard from "../NavButtonDashboard/NavButtonDashboard";
 import AddGunForm from "../Forms/AddGunForm/AddGunForm";
 import DarkBg from "../DarkBg/DarkBg";
@@ -9,7 +9,8 @@ import toast from "react-hot-toast";
 import "./DashboardPage.css";
 import {
   handleGunSelect,
-  handleHighlighted,
+  handleHighlightedBig,
+  handleHighlightedSmall,
   handleNextPage,
   handlePageChange,
   handlePreviousPage,
@@ -28,34 +29,67 @@ export default function DashboardPage() {
   const [isOpenUpdate, setIsOpenUpdate] = useState(false);
   const [isOpenDelete, setIsOpenDelete] = useState(false);
 
-  const [showGuns, setShowGuns] = useState(true); // initially show guns, but if user goes on statistics dont show them
-
+  const [showGuns, setShowGuns] = useState(true);
   const [guns, setGuns] = useState<Gun[]>([]);
   const [selectedGunName, setSelectedGunName] = useState<string | "">("");
   const [lastSortByNameWasAscending, setLastSortByNameWasAscending] = useState(false);
   const [lastSortByCaliberWasAscending, setLastSortByCaliberWasAscending] = useState(false);
-  const [highlightedGunName, setHighlightedGunName] = useState<string | "">("");
+  const [highlightedGunNameBiggestCaliber, setHighlightedGunNameBiggestCaliber] = useState<
+    string | ""
+  >("");
+  const [highlightedGunNameSmallestCaliber, setHighlightedGunNameSmallestCaliber] = useState<
+    string | ""
+  >("");
+  const [showOnlyRifles, setShowOnlyRifles] = useState(false);
+
+  useEffect(() => {
+    const fetchGuns = async () => {
+      try {
+        const response = await fetch("/api/guns");
+        if (!response.ok) {
+          throw new Error("Failed to fetch guns");
+        }
+        const data = await response.json();
+        setGuns(data);
+      } catch (error) {
+        console.error("Error fetching guns:", error);
+        toast.error("Failed to load guns.");
+      }
+    };
+
+    fetchGuns();
+  }, []);
 
   const caliberCounts = guns.reduce((acc, gun) => {
     acc[gun.caliber] = (acc[gun.caliber] || 0) + 1;
     return acc;
   }, {} as Record<number, number>);
 
-  // Convert to array format
   const chartData = Object.entries(caliberCounts).map(([caliber, count]) => ({
-    caliber: parseFloat(caliber), // Ensure number type
+    caliber: parseFloat(caliber),
     count,
   }));
 
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(guns.length / ITEMS_PER_PAGE);
-  const displayedGuns = guns.slice(
+  const filteredGuns = guns.filter((gun) =>
+    showOnlyRifles ? gun.category?.toLowerCase() === "rifle" : true
+  );
+
+  const totalPages = Math.ceil(filteredGuns.length / ITEMS_PER_PAGE);
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages > 0 ? totalPages : 1);
+    }
+  }, [totalPages]);
+
+  const displayedGuns = filteredGuns.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
 
   const selectedGun =
-    selectedGunName !== "" ? guns.filter((gun) => gun.name === selectedGunName)[0] : null; // it will only have one element since name is unique, and [0] to get it so we dont give a list
+    selectedGunName !== "" ? guns.find((gun) => gun.name === selectedGunName) : null;
 
   return (
     <div>
@@ -70,9 +104,12 @@ export default function DashboardPage() {
         setLastSortByNameWasAscending={setLastSortByNameWasAscending}
         lastSortByCaliberWasAscending={lastSortByCaliberWasAscending}
         lastSortByNameWasAscending={lastSortByNameWasAscending}
-        setHighlightedGunName={setHighlightedGunName}
+        setHighlightedGunNameBiggestCaliber={setHighlightedGunNameBiggestCaliber}
+        setHighlightedGunNameSmallestCaliber={setHighlightedGunNameSmallestCaliber}
         setShowGuns={setShowGuns}
         showGuns={showGuns}
+        showOnlyRifles={showOnlyRifles}
+        setShowOnlyRifles={setShowOnlyRifles}
       />
       {isOpenAdd && (
         <>
@@ -90,7 +127,6 @@ export default function DashboardPage() {
           <UpdateGunForm
             onClose={() => setIsOpenUpdate(false)}
             guns={guns}
-            onSetGuns={(guns) => setGuns([...guns])}
             updatedGun={selectedGun}
           />
         </>
@@ -109,25 +145,35 @@ export default function DashboardPage() {
       {showGuns && (
         <>
           <div className="guns" style={{ width: "100%", padding: "20px" }}>
-            {displayedGuns.map((gun) => (
-              <div
-                key={gun.name}
-                onClick={() => {
-                  handleGunSelect(gun.name, selectedGunName, setSelectedGunName);
-                }}
-              >
-                <GunComponent
-                  name={gun.name}
-                  weight={gun.weight}
-                  actionType={gun.actionType}
-                  caliber={gun.caliber}
-                  category={gun.category}
-                  effectiveRange={gun.effectiveRange}
-                  selected={selectedGunName === gun.name ? true : false}
-                  highlighted={highlightedGunName === gun.name ? true : false}
-                />
-              </div>
-            ))}
+            {displayedGuns
+              .filter((gun) =>
+                showOnlyRifles ? gun.category?.toLowerCase() === "rifle" : true
+              )
+              .map((gun) => (
+                <div
+                  key={gun.id}
+                  onClick={() => {
+                    handleGunSelect(gun.name, selectedGunName, setSelectedGunName);
+                  }}
+                >
+                  <GunComponent
+                    id={gun.id}
+                    name={gun.name}
+                    weight={gun.weight}
+                    actionType={gun.actionType}
+                    caliber={gun.caliber}
+                    category={gun.category}
+                    effectiveRange={gun.effectiveRange}
+                    selected={selectedGunName === gun.name ? true : false}
+                    highlightedBlue={
+                      highlightedGunNameBiggestCaliber === gun.name ? true : false
+                    }
+                    highlightedRed={
+                      highlightedGunNameSmallestCaliber === gun.name ? true : false
+                    }
+                  />
+                </div>
+              ))}
           </div>
           <div
             className="pagination"
@@ -213,7 +259,6 @@ export default function DashboardPage() {
             textAlign: "center",
             flexDirection: "column",
             padding: "20px",
-            border: "1px solid red",
           }}
         >
           <h1 style={{ fontWeight: 500, fontSize: "18px" }}>Guns by caliber chart</h1>
