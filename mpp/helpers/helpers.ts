@@ -236,3 +236,40 @@ export const handlePreviousPage = (currentPage: number, totalPages: number, setC
     setCurrentPage(currentPage - 1);
   }
 };
+
+
+export const getCaliberRepartization = (guns: Gun[]): Record<number, number> => {
+  return guns.reduce((acc, gun) => {
+    acc[gun.caliber] = (acc[gun.caliber] || 0) + 1;
+    return acc;
+  }, {} as Record<number, number>);
+}
+
+export const getCaliberDataForCaliberChart = (caliberCounts: Record<number, number>): { caliber: number; count: number }[] => {
+  return Object.entries(caliberCounts).map(([caliber, count]) => ({
+    caliber: parseFloat(caliber),
+    count,
+  }));
+}
+
+
+export const filterGunsByRifleCategory = (guns: Gun[], showOnlyRifles: boolean): Gun[] => {
+  return guns.filter((gun) =>
+    showOnlyRifles ? gun.category?.toLowerCase() === "rifle" : true
+  );
+}
+
+export const computeNumberOfTotalPages = (filteredGunsLength: number, ITEMS_PER_PAGE: number): number => {
+  return Math.ceil(filteredGunsLength / ITEMS_PER_PAGE);
+}
+
+export const getDisplayedGuns = (guns: Gun[], currentPage: number, ITEMS_PER_PAGE: number): Gun[]=> {
+  return guns.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+}
+
+export const getSelectedGun = (guns: Gun[], selectedGunName: string): Gun | undefined | null => {
+  return selectedGunName !== "" ? guns.find((gun) => gun.name === selectedGunName) : null;
+}
