@@ -12,6 +12,19 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
+  web:
+    image: node:18
+    build: 
+      context: .
+    container_name: mpp-webb-main
+    environment:
+      DATABASE_URL: postgresql://admin:admin@postgres:5432/guns
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    volumes:
+      - ./:/src
+      - /src/node_modules
 volumes:
   postgres_data:

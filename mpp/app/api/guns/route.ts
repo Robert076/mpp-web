@@ -1,18 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isNumber } from "@/helpers/helpers";
 
-interface Gun {
-    id?: number;
-    name: string;
-    caliber: number;
-    weight: number;
-    actionType: string;
-    category?: string;
-    effectiveRange?: number;
-    selected?: boolean;
-    highlightedBlue?: boolean;
-    highlightedRed?: boolean;
-}
+const pool = new Pool({
+  user: 'admin',          
+  host: 'postgres',
+  database: 'guns',       
+  password: 'admin',      
+  port: 5432,
+});
+
+export async function GET() {
+  try {
+    const response = await pool.query('SELECT * FROM "Gun"'); 
+    return NextResponse.json(response.rows); 
+  } catch (error) {
+    console.error('Error querying database', error);
+    return NextResponse.error();
+  }
 
 let guns: Gun[] = [];
 

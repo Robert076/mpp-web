@@ -3,6 +3,47 @@
     -ms-overflow-style: none; /* For Internet Explorer & Edge */
   }
   
-  .buttons::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
-  }
+.buttons::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.guns {
+  padding: 20px;
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-button{
+  padding: 5px 20px;
+  width: 100px;
+  border: none;
+  background: white;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.pagination-button-number-of-page{
+  padding: 5px 10px;
+  border: none;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.caliber-chart{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.caliber-chart-header {
+  font-weight: 500;
+  font-size: 18px;
+}
