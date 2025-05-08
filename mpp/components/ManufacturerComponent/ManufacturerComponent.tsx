@@ -24,6 +24,7 @@ const ManufacturerComponent: React.FC<Manufacturer> = ({
       }}
     >
       <h3 style={{ fontWeight: "500" }}>{name}</h3>
+      <p style={{ fontSize: FONT_SIZE_PARAGRAPH }}>ID: {id}</p>
       <p style={{ fontSize: FONT_SIZE_PARAGRAPH }}>{description}</p>
     </div>
   );

@@ -271,6 +271,42 @@ export default function DashboardPage() {
           <CaliberChart data={chartData} />
         </div>
       )}
+
+      {entity === "Manufacturers" && isOpenAddManufacturer && (
+        <div>
+          <DarkBg />
+          <AddManufacturerForm
+            onClose={() => setIsOpenAddManufacturer(false)}
+            onAddManufacturer={(newManufacturer) =>
+              setManufacturers([...manufacturers, newManufacturer])
+            }
+            manufacturers={manufacturers}
+          />
+        </div>
+      )}
+      {entity === "Manufacturers" && isOpenUpdateManufacturer && (
+        <>
+          <DarkBg />
+          <UpdateManufacturerForm
+            onClose={() => setIsOpenUpdateManufacturer(false)}
+            updatedManufacturer={selectedManufacturer}
+            manufacturers={manufacturers}
+          />
+        </>
+      )}
+      {entity === "Manufacturers" && isOpenDeleteManufacturer && (
+        <>
+          <DarkBg />
+          <DeleteManufacturerForm
+            onClose={() => setIsOpenDeleteManufacturer(false)}
+            deletedManufacturer={selectedManufacturer}
+            manufacturers={manufacturers}
+            onDeleteManufacturer={() => {
+              if (selectedManufacturer) handleDeleteManufacturer(selectedManufacturer.name);
+            }}
+          />
+        </>
+      )}
       {entity === "Manufacturers" && (
         <>
           <div className="manufacturers">
@@ -345,42 +381,6 @@ export default function DashboardPage() {
               Next
             </button>
           </div>
-        </>
-      )}
-
-      {entity === "Manufacturers" && isOpenAddManufacturer && (
-        <div style={{ border: "1px solid red" }}>
-          <DarkBg />
-          <AddManufacturerForm
-            onClose={() => setIsOpenAddManufacturer(false)}
-            onAddManufacturer={(newManufacturer) =>
-              setManufacturers([...manufacturers, newManufacturer])
-            }
-            manufacturers={manufacturers}
-          />
-        </div>
-      )}
-      {entity === "Manufacturers" && isOpenUpdateManufacturer && (
-        <>
-          <DarkBg />
-          <UpdateManufacturerForm
-            onClose={() => setIsOpenUpdateManufacturer(false)}
-            updatedManufacturer={selectedManufacturer}
-            manufacturers={manufacturers}
-          />
-        </>
-      )}
-      {entity === "Manufacturers" && isOpenDeleteManufacturer && (
-        <>
-          <DarkBg />
-          <DeleteManufacturerForm
-            onClose={() => setIsOpenDeleteManufacturer(false)}
-            deletedManufacturer={selectedManufacturer}
-            manufacturers={manufacturers}
-            onDeleteManufacturer={() => {
-              if (selectedManufacturer) handleDeleteManufacturer(selectedManufacturer.name);
-            }}
-          />
         </>
       )}
     </div>
