@@ -16,6 +16,7 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun, guns }) => {
   const [actionType, setActionType] = useState("");
   const [category, setCategory] = useState("");
   const [effectiveRange, setEffectiveRange] = useState("");
+  const [manufacturer, setManufacturer] = useState("");
 
   const handleSubmit = async () => {
     try {
@@ -25,7 +26,8 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun, guns }) => {
         weight,
         actionType,
         category,
-        effectiveRange
+        effectiveRange,
+        manufacturer
       );
 
       if (!newGun) {
@@ -76,6 +78,7 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun, guns }) => {
       />
       <Input label="Category" value={category} onChange={setCategory} />
       <Input label="Effective range" value={effectiveRange} onChange={setEffectiveRange} />
+      <Input label="Manufacturer" value={manufacturer} onChange={setManufacturer} />
 
       {/* THIS WILL BE REMOVED IN THE PROD */}
       <div
@@ -94,6 +97,7 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun, guns }) => {
               setActionType("full-automatic"),
               setCategory("Rifle"),
               setEffectiveRange("1000");
+            setManufacturer("1");
           }}
         >
           Quickadd 1
@@ -106,6 +110,7 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun, guns }) => {
               setActionType("full-automatic"),
               setCategory("Rifle"),
               setEffectiveRange("900");
+            setManufacturer("1");
           }}
         >
           Quickadd 2
@@ -118,6 +123,7 @@ const AddGunForm: React.FC<Props> = ({ onClose, onAddGun, guns }) => {
               setActionType("semi-automatic"),
               setCategory("Pistol"),
               setEffectiveRange("300");
+            setManufacturer("1");
           }}
         >
           Quickadd 3

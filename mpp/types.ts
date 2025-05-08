@@ -22,6 +22,7 @@ interface Gun{
     selected?: boolean;
     highlightedBlue?: boolean;
     highlightedRed?: boolean;
+    manufacturerId: number;
 }
 
 interface NavigationButtonsProps{

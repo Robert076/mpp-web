@@ -7,7 +7,8 @@ export const handleAddGun = async (
   weight: string,
   actionType: string,
   category: string | undefined,
-  effectiveRange: string | undefined
+  effectiveRange: string | undefined,
+  manufacturerId: string
 ) => {
   if (name.length < 3) {
     throw new Error("Gun name cannot be less than 3 characters");
@@ -19,6 +20,10 @@ export const handleAddGun = async (
     throw new Error("Weight must be a number");
   }
 
+  if (isNaN(Number(manufacturerId))) {
+    throw new Error("manufacturerId must be a number");
+  }
+
   const newGun = {
     name,
     caliber: parseFloat(caliber),
@@ -26,6 +31,7 @@ export const handleAddGun = async (
     actionType,
     category: category ? category : "not specified",
     effectiveRange: effectiveRange ? parseFloat(effectiveRange) : -1,
+    manufacturerId: parseInt(manufacturerId)
   };
 
   try {
@@ -68,7 +74,8 @@ export const handleUpdateGun = async (
   weight: string,
   actionType: string,
   category: string | undefined,
-  effectiveRange: string | undefined
+  effectiveRange: string | undefined,
+  manufacturerId: string
   ) => {
 
   const gunIndex = guns.findIndex((gun) => gun.name === name);
@@ -85,7 +92,10 @@ export const handleUpdateGun = async (
   }
   if (!isNumber(weight)) {
     throw new Error("Weight must be a number");
-}
+  }
+  if(!isNumber(manufacturerId)) {
+    throw new Error("manufacturerId must be a number");
+  }
 
 const updatedGun: Gun = {
   name,
@@ -94,6 +104,7 @@ const updatedGun: Gun = {
   actionType,
   category: category ? category : "not specified",
   effectiveRange: effectiveRange ? parseFloat(effectiveRange) : -1,
+  manufacturerId: parseInt(manufacturerId),
 };
 
 try {

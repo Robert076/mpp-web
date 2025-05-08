@@ -8,11 +8,19 @@ generator client {
 }
 
 model Gun {
-  id             Int     @id @default(autoincrement())
+  id             Int           @id @default(autoincrement())
   name           String
   caliber        Float
   weight         Float
   actionType     String
   category       String?
   effectiveRange Int?
+  manufacturerId Int?
+  manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
+}
+
+model Manufacturer {
+  id   Int    @id @default(autoincrement())
+  name String
+  guns Gun[]
 }
