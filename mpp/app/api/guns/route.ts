@@ -4,7 +4,7 @@ import { isNumber } from "@/helpers/helpers";
 
 const pool = new Pool({
   user: 'admin',          
-  host: 'localhost',
+  host: 'postgres',
   database: 'guns',       
   password: 'admin',      
   port: 5432,

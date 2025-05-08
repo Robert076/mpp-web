@@ -19,11 +19,18 @@ import {
   sortByCaliberDesc,
   sortByNameAsc,
   sortByNameDesc,
+  getCaliberRepartization,
+  getCaliberDataForCaliberChart,
+  filterGunsByRifleCategory,
+  computeNumberOfTotalPages,
+  getDisplayedGuns,
+  getSelectedGun,
 } from "@/helpers/helpers";
 import DeleteGunForm from "../Forms/DeleteGunForm/DeleteGunForm";
 import NavigationButtons from "../NavigationButtons/NavigationButtons";
 import { ITEMS_PER_PAGE } from "@/constants";
 import CaliberChart from "../Charts/CaliberChart/CaliberChart";
+import { ErrorMessages } from "@/enums/ErrorMessages";
 
 export default function DashboardPage() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -35,62 +42,48 @@ export default function DashboardPage() {
   const [selectedGunName, setSelectedGunName] = useState<string | "">("");
   const [lastSortByNameWasAscending, setLastSortByNameWasAscending] = useState(false);
   const [lastSortByCaliberWasAscending, setLastSortByCaliberWasAscending] = useState(false);
-  const [highlightedGunNameBiggestCaliber, setHighlightedGunNameBiggestCaliber] = useState<
-    string | ""
-  >("");
-  const [highlightedGunNameSmallestCaliber, setHighlightedGunNameSmallestCaliber] = useState<
-    string | ""
-  >("");
+  const [highlightedGunNameBiggestCaliber, setHighlightedGunNameBiggestCaliber] =
+    useState<string>("");
+  const [highlightedGunNameSmallestCaliber, setHighlightedGunNameSmallestCaliber] =
+    useState<string>("");
   const [showOnlyRifles, setShowOnlyRifles] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const caliberCounts = getCaliberRepartization(guns);
+
+  const chartData = getCaliberDataForCaliberChart(caliberCounts);
+
+  const filteredGuns = filterGunsByRifleCategory(guns, showOnlyRifles);
+
+  const totalPages = computeNumberOfTotalPages(filteredGuns.length, ITEMS_PER_PAGE);
+
+  const displayedGuns = getDisplayedGuns(filteredGuns, currentPage, ITEMS_PER_PAGE);
+
+  const selectedGun = getSelectedGun(guns, selectedGunName);
 
   useEffect(() => {
     const fetchGuns = async () => {
       try {
         const response = await fetch("/api/guns");
         if (!response.ok) {
-          throw new Error("Failed to fetch guns");
+          throw new Error(ErrorMessages.FETCH_GUNS);
         }
         const data = await response.json();
         setGuns(data);
       } catch (error) {
-        console.error("Error fetching guns:", error);
-        toast.error("Failed to load guns.");
+        console.error(ErrorMessages.FETCH_GUNS, ": ", error);
+        toast.error(ErrorMessages.FETCH_GUNS);
       }
     };
 
     fetchGuns();
   }, []);
 
-  const caliberCounts = guns.reduce((acc, gun) => {
-    acc[gun.caliber] = (acc[gun.caliber] || 0) + 1;
-    return acc;
-  }, {} as Record<number, number>);
-
-  const chartData = Object.entries(caliberCounts).map(([caliber, count]) => ({
-    caliber: parseFloat(caliber),
-    count,
-  }));
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const filteredGuns = guns.filter((gun) =>
-    showOnlyRifles ? gun.category?.toLowerCase() === "rifle" : true
-  );
-
-  const totalPages = Math.ceil(filteredGuns.length / ITEMS_PER_PAGE);
-
   useEffect(() => {
     if (currentPage > totalPages) {
       setCurrentPage(totalPages > 0 ? totalPages : 1);
     }
   }, [totalPages]);
-
-  const displayedGuns = filteredGuns.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
-
-  const selectedGun =
-    selectedGunName !== "" ? guns.find((gun) => gun.name === selectedGunName) : null;
 
   return (
     <div>
@@ -147,59 +140,30 @@ export default function DashboardPage() {
       )}
       {showGuns && (
         <>
-          <div className="guns" style={{ width: "100%", padding: "20px" }}>
-            {displayedGuns
-              .filter((gun) =>
-                showOnlyRifles ? gun.category?.toLowerCase() === "rifle" : true
-              )
-              .map((gun) => (
-                <div
-                  key={gun.id}
-                  onClick={() => {
-                    handleGunSelect(gun.name, selectedGunName, setSelectedGunName);
-                  }}
-                >
-                  <GunComponent
-                    id={gun.id}
-                    name={gun.name}
-                    weight={gun.weight}
-                    actionType={gun.actionType}
-                    caliber={gun.caliber}
-                    category={gun.category}
-                    effectiveRange={gun.effectiveRange}
-                    selected={selectedGunName === gun.name ? true : false}
-                    highlightedBlue={
-                      highlightedGunNameBiggestCaliber === gun.name ? true : false
-                    }
-                    highlightedRed={
-                      highlightedGunNameSmallestCaliber === gun.name ? true : false
-                    }
-                  />
-                </div>
-              ))}
+          <div className="guns">
+            {filterGunsByRifleCategory(displayedGuns, showOnlyRifles).map((gun) => (
+              <div
+                key={gun.id}
+                onClick={() => {
+                  handleGunSelect(gun.name, selectedGunName, setSelectedGunName);
+                }}
+              >
+                <GunComponent
+                  {...gun}
+                  selected={selectedGunName === gun.name}
+                  highlightedBlue={highlightedGunNameBiggestCaliber === gun.name}
+                  highlightedRed={highlightedGunNameSmallestCaliber === gun.name}
+                />
+              </div>
+            ))}
           </div>
-          <div
-            className="pagination"
-            style={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <div className="pagination">
             <button
               onClick={() => {
                 handlePreviousPage(currentPage, totalPages, setCurrentPage);
               }}
               disabled={currentPage === 1}
-              style={{
-                padding: "5px 20px",
-                width: "100px",
-                border: "none",
-                background: "white",
-                borderRadius: "5px",
-                marginRight: "10px",
-              }}
+              className="pagination-button"
             >
               Previous
             </button>
@@ -219,13 +183,8 @@ export default function DashboardPage() {
                     key={page}
                     onClick={() => handlePageChange(page, setCurrentPage)}
                     disabled={currentPage === page}
-                    style={{
-                      padding: "5px 10px",
-                      border: "none",
-                      backgroundColor: "transparent",
-                      color: currentPage === page ? "lightgray" : "black",
-                      borderRadius: "5px",
-                    }}
+                    className="pagination-button-number-of-page"
+                    style={{ color: currentPage === page ? "lightgray" : "black" }}
                   >
                     {page}
                   </button>
@@ -234,18 +193,11 @@ export default function DashboardPage() {
             })()}
 
             <button
-              style={{
-                padding: "5px 20px",
-                width: "100px",
-                border: "none",
-                background: "white",
-                borderRadius: "5px",
-                marginLeft: "10px",
-              }}
               onClick={() => {
                 handleNextPage(currentPage, totalPages, setCurrentPage);
               }}
               disabled={currentPage === totalPages}
+              className="pagination-button"
             >
               Next
             </button>
@@ -253,18 +205,8 @@ export default function DashboardPage() {
         </>
       )}
       {!showGuns && (
-        <div
-          style={{
-            width: "100vw",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
-            flexDirection: "column",
-            padding: "20px",
-          }}
-        >
-          <h1 style={{ fontWeight: 500, fontSize: "18px" }}>Guns by caliber chart</h1>
+        <div className="caliber-chart">
+          <h1 className="caliber-chart-header">Guns by caliber chart</h1>
           <CaliberChart data={chartData} />
         </div>
       )}
