@@ -20,7 +20,8 @@ model Gun {
 }
 
 model Manufacturer {
-  id   Int    @id @default(autoincrement())
-  name String
-  guns Gun[]
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String @default("No description provided")
+  guns        Gun[]
 }
