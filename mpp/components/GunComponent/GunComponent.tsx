@@ -10,6 +10,7 @@ const GunComponent: React.FC<Gun> = ({
   selected,
   highlightedBlue,
   highlightedRed,
+  manufacturerId,
 }) => {
   const FONT_SIZE_PARAGRAPH = "13px";
   const border = selected ? "2px solid #539BF5" : "2px solid #f7f7f7";
@@ -42,6 +43,7 @@ const GunComponent: React.FC<Gun> = ({
       <p style={{ fontSize: FONT_SIZE_PARAGRAPH }}>Action type: {actionType}</p>
       <p style={{ fontSize: FONT_SIZE_PARAGRAPH }}>Category: {category}</p>
       <p style={{ fontSize: FONT_SIZE_PARAGRAPH }}>Effective range: {effectiveRange}m</p>
+      <p style={{ fontSize: FONT_SIZE_PARAGRAPH }}>Manufacturer ID: {manufacturerId}</p>
     </div>
   );
 };

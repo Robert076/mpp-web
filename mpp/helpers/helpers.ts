@@ -67,6 +67,19 @@ export const handleGunSelect = (name: string, selectedName: string, setSelectedN
   }
 }
 
+
+export const handleManufacturerSelect = (name: string, selectedName: string, setSelectedName: (name: string) => void) => {
+  if(name == "") {
+    return;
+  }
+  if(name === selectedName) {
+  setSelectedName("");
+  }
+  else {
+    setSelectedName(name);
+  }
+}
+
 export const handleUpdateGun = async (
   guns: Gun[],
   name: string,
@@ -127,7 +140,7 @@ try {
 }
 };
 
-export const handleDelete = async (
+export const handleDeleteGun = async (
   name: string
 ) => {
   try {
@@ -281,6 +294,119 @@ export const getDisplayedGuns = (guns: Gun[], currentPage: number, ITEMS_PER_PAG
   );
 }
 
+export const getDisplayedManufacturers = (guns: Manufacturer[], currentPage: number, ITEMS_PER_PAGE: number): Manufacturer[]=> {
+  return guns.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+}
+
 export const getSelectedGun = (guns: Gun[], selectedGunName: string): Gun | undefined | null => {
   return selectedGunName !== "" ? guns.find((gun) => gun.name === selectedGunName) : null;
 }
+
+export const getSelectedManufacturer = (manufacturers: Manufacturer[], selectedManufacturerName: string): Manufacturer | undefined | null => {
+  return selectedManufacturerName !== "" ? manufacturers.find((manufacturer) => manufacturer.name === selectedManufacturerName) : null;
+}
+
+
+export const handleAddManufacturer = async (name: string, description: string) => {
+  if (name.trim().length < 3) {
+    throw new Error("Manufacturer name must be at least 3 characters");
+  }
+
+  if (description.trim().length < 3) {
+    throw new Error("Manufacturer description must be at least 3 characters");
+  }
+
+  const newManufacturer = { name, description };
+
+  try {
+    const response = await fetch("/api/manufacturers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newManufacturer),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to add manufacturer");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+};
+
+export const handleUpdateManufacturer = async (
+  manufacturers: Manufacturer[],
+  name: string,
+  description: string
+) => {
+  const manufacturerIndex = manufacturers.findIndex(
+    (manufacturer) => manufacturer.name === name
+  );
+
+  if (manufacturerIndex === -1) {
+    throw new Error("Manufacturer not found");
+  }
+
+  if (name.trim().length < 3) {
+    throw new Error("Manufacturer name must be at least 3 characters");
+  }
+
+  const updatedManufacturer: Manufacturer = {
+    id: manufacturers[manufacturerIndex].id,
+    name,
+    description
+  };
+
+  try {
+    const response = await fetch("/api/manufacturers", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedManufacturer),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to update manufacturer");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+};
+
+export const handleDeleteManufacturer = async (
+  name: string
+) => {
+  try {
+    const response = await fetch("/api/manufacturers", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({"name": name}),
+    });
+
+    if (!response.ok) {
+      throw new Error(`${response.status}`);
+    }
+
+    const data = await response.json();
+    return data; 
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+}
+
+export const sortManufacturersByNameAscending = (manufacturers: Manufacturer[]): Manufacturer[] => {
+  return manufacturers.slice().sort((a, b) => a.name.localeCompare(b.name));
+};

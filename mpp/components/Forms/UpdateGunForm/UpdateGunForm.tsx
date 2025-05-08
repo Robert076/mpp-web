@@ -18,17 +18,19 @@ const UpdateGunForm: React.FC<Props> = ({ onClose, updatedGun, guns }) => {
   const [actionType, setActionType] = useState(updatedGun.actionType);
   const [category, setCategory] = useState(updatedGun.category?.toString());
   const [effectiveRange, setEffectiveRange] = useState(updatedGun.effectiveRange?.toString());
+  const [manufacturerId, setManufacturerId] = useState(updatedGun.manufacturerId.toString());
 
   const handleSubmit = async () => {
     try {
-      const newGuns = handleUpdateGun(
+      const newGuns = await handleUpdateGun(
         guns,
         updatedGun.name,
         caliber,
         weight,
         actionType,
         category,
-        effectiveRange
+        effectiveRange,
+        manufacturerId
       );
       if (newGuns instanceof Error) {
         toast.error(newGuns.message);
@@ -75,6 +77,7 @@ const UpdateGunForm: React.FC<Props> = ({ onClose, updatedGun, guns }) => {
         value={effectiveRange ? effectiveRange : ""}
         onChange={setEffectiveRange}
       />
+      <Input label="Manufacturer ID" value={manufacturerId} onChange={setManufacturerId} />
 
       <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
         <button

@@ -23,9 +23,9 @@ export async function GET() {
 export async function POST(request: Request) {
     try {
       const body = await request.json();
-      const { name } = body;
+      const { name, description } = body;
   
-      if (!name || name.length < 3) {
+      if (!name || name.length < 3 || !description || description.length < 3) {
         return NextResponse.json(
           { error: "Bad request: invalid name for manufacturer" },
           { status: 400 }
@@ -51,11 +51,11 @@ export async function POST(request: Request) {
       }
   
       const query = `
-        INSERT INTO "Manufacturer" (name)
-        VALUES ($1)
+        INSERT INTO "Manufacturer" (name, description)
+        VALUES ($1, $2)
         RETURNING *;
       `;
-      const values = [name];
+      const values = [name, description];
       const res = await pool.query(query, values);
   
       return NextResponse.json(res.rows[0], { status: 201 });
@@ -69,9 +69,9 @@ export async function POST(request: Request) {
   export async function PUT(request: Request) {
     try {
       const body = await request.json();
-      const { id, name } = body;
+      const { id, name, description } = body;
   
-      if (!id || !name || name.length < 3) {
+      if (!id || !name || name.length < 3 || !description || description.length < 3) {
         return NextResponse.json(
           { error: "Bad request: Either null fields or invalid data" },
           { status: 400 }
@@ -96,11 +96,11 @@ export async function POST(request: Request) {
   
       const query = `
         UPDATE "Manufacturer" 
-        SET name = $2
+        SET name = $2, description = $3
         WHERE id = $1
         RETURNING *;
       `;
-      const values = [id, name];
+      const values = [id, name, description];
       const res = await pool.query(query, values);
   
       return NextResponse.json(res.rows[0], { status: 200 });
@@ -113,19 +113,19 @@ export async function POST(request: Request) {
   export async function DELETE(request: Request) {
     try {
       const body = await request.json();
-      const { id } = body;
+      const { name } = body;
   
-      if (!id) {
+      if (!name) {
         return NextResponse.json(
-          { error: "Bad request: Manufacturer ID is required" },
+          { error: "Bad request: Manufacturer name is required" },
           { status: 400 }
         );
       }
   
       const checkIfManufacturerExistsQuery = `
-        SELECT * FROM "Manufacturer" WHERE id=$1
+        SELECT * FROM "Manufacturer" WHERE name=$1
       `;
-      const paramsForCheckingManufacturerExistence = [id];
+      const paramsForCheckingManufacturerExistence = [name];
       const manufacturerExist = await pool.query(
         checkIfManufacturerExistsQuery,
         paramsForCheckingManufacturerExistence
@@ -133,15 +133,15 @@ export async function POST(request: Request) {
   
       if (manufacturerExist.rows.length === 0) {
         return NextResponse.json(
-          { error: `Manufacturer with ID ${id} does not exist.` },
+          { error: `Manufacturer with ID ${name} does not exist.` },
           { status: 404 }
         );
       }
   
       const query = `
-        DELETE FROM "Manufacturer" WHERE id = $1 RETURNING *;
+        DELETE FROM "Manufacturer" WHERE name = $1 RETURNING *;
       `;
-      const params = [id];
+      const params = [name];
       const res = await pool.query(query, params);
   
       return NextResponse.json(res.rows[0], { status: 200 });

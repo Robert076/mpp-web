@@ -25,10 +25,20 @@ interface Gun{
     manufacturerId: number;
 }
 
+interface Manufacturer {
+    id?: number;
+    name: string;
+    description: string;
+    selected?: boolean;
+}
+
 interface NavigationButtonsProps{
-    setIsOpenAdd: (value: boolean) => void;
-    setIsOpenUpdate: (value: boolean) => void;
-    setIsOpenDelete: (value: boolean) => void;
+    setIsOpenAddGun: (value: boolean) => void;
+    setIsOpenUpdateGun: (value: boolean) => void;
+    setIsOpenDeleteGun: (value: boolean) => void;
+    setIsOpenAddManufacturer: (value: boolean) => void;
+    setIsOpenUpdateManufacturer: (value: boolean) => void;
+    setIsOpenDeleteManufacturer: (value: boolean) => void;
     setGuns: (guns: Gun[]) => void;
     guns: Gun[];
     selectedGun: Gun | null | undefined;
@@ -38,10 +48,10 @@ interface NavigationButtonsProps{
     setHighlightedGunNameSmallestCaliber: (newName: string) => void;
     setLastSortByNameWasAscending: (value: boolean) => void;
     setLastSortByCaliberWasAscending: (value: boolean) => void;
-    setShowGuns: (value: boolean) => void;
-    showGuns: boolean;
     showOnlyRifles: boolean;
     setShowOnlyRifles: (value: boolean) => void; 
+    setEntity: (value: string) => void;
+    entity: string;
 }
 
 interface CaliberChartDataProps {
