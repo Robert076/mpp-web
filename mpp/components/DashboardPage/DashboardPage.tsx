@@ -50,15 +50,10 @@ export default function DashboardPage() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const caliberCounts = getCaliberRepartization(guns);
-
   const chartData = getCaliberDataForCaliberChart(caliberCounts);
-
   const filteredGuns = filterGunsByRifleCategory(guns, showOnlyRifles);
-
   const totalPages = computeNumberOfTotalPages(filteredGuns.length, ITEMS_PER_PAGE);
-
   const displayedGuns = getDisplayedGuns(filteredGuns, currentPage, ITEMS_PER_PAGE);
-
   const selectedGun = getSelectedGun(guns, selectedGunName);
 
   useEffect(() => {
