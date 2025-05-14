@@ -1,0 +1,1051 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1747219935650,7,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,7
+1747219935658,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219935659,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219935659,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219935660,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219935661,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219935661,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219935662,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219935662,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219935663,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219936622,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219936624,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219936626,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219936627,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219936629,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219936630,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219936631,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219936632,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219936632,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219936633,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219937624,2,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,2
+1747219937628,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219937630,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219937632,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219937634,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219937636,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219937638,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219937640,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219937641,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219937642,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219938623,2,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,2
+1747219938626,2,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,2
+1747219938629,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219938631,2,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,2
+1747219938633,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219938635,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219938637,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219938638,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219938639,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219938640,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219939621,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219939623,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219939624,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219939625,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219939626,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219939627,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219939628,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219939629,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219939630,0,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,0
+1747219939630,1,Get Statistics,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: org.apache.http.conn.HttpHostConnectException]]]
+
+****** comparison: [[[200                                                                  ]]]
+
+/",2623,0,1,1,http://localhost:3000/api/statistics,0,0,1
+1747219951252,694,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,679,0,1
+1747219950280,1732,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,1732,0,7
+1747219951951,109,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,109,0,0
+1747219952011,107,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,106,0,0
+1747219952061,99,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,99,0,0
+1747219952118,88,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,88,0,0
+1747219952161,83,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,83,0,0
+1747219952206,77,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,77,0,0
+1747219952244,83,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,83,0,0
+1747219952245,114,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,114,0,1
+1747219952283,113,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,112,0,0
+1747219952328,104,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,104,0,0
+1747219952360,105,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,105,0,0
+1747219952396,106,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,106,0,0
+1747219952433,124,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,124,0,0
+1747219952465,147,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,147,0,0
+1747219952503,583,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,582,0,0
+1747219952558,579,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,579,0,0
+1747219952613,574,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,574,0,0
+1747219953086,148,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,148,0,0
+1747219953138,192,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,4,4,http://localhost:3000/api/statistics,192,0,0
+1747219953189,186,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,4,4,http://localhost:3000/api/statistics,186,0,0
+1747219953235,176,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,4,4,http://localhost:3000/api/statistics,176,0,0
+1747219953256,199,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,4,4,http://localhost:3000/api/statistics,198,0,4
+1747219953331,156,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,4,4,http://localhost:3000/api/statistics,155,0,0
+1747219953376,170,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,170,0,0
+1747219953411,184,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,3,3,http://localhost:3000/api/statistics,184,0,0
+1747219953455,173,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,173,0,0
+1747219953546,136,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,136,0,0
+1747219953628,109,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,109,0,0
+1747219953683,95,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,95,0,0
+1747219953738,95,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,95,0,0
+1747219953778,106,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,106,0,0
+1747219953834,114,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,114,0,0
+1747219953885,115,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,115,0,0
+1747219953949,91,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,91,0,0
+1747219954040,49,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,49,0,0
+1747219954090,99,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,98,0,0
+1747219954189,78,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,78,0,0
+1747219954249,104,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,104,0,1
+1747219954267,142,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,2,2,http://localhost:3000/api/statistics,142,0,0
+1747219954354,120,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,120,0,0
+1747219954474,79,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,79,0,0
+1747219954553,106,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,106,0,0
+1747219954659,88,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,88,0,0
+1747219954747,54,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,54,0,0
+1747219954802,92,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,92,0,0
+1747219954895,53,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,53,0,0
+1747219954948,45,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,45,0,0
+1747219954994,51,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,51,0,0
+1747219965160,158,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,156,0,7
+1747219965323,54,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,54,0,0
+1747219965378,46,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,46,0,0
+1747219965424,42,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,41,0,0
+1747219965466,48,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,48,0,0
+1747219965515,41,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,41,0,0
+1747219965556,40,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,40,0,0
+1747219965596,43,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,43,0,0
+1747219965640,42,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,41,0,0
+1747219965682,41,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,41,0,0
+1747219966133,71,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,71,0,2
+1747219966205,43,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,43,0,0
+1747219966248,47,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,47,0,0
+1747219966295,40,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,40,0,0
+1747219966335,48,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,48,0,0
+1747219966386,59,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,59,0,0
+1747219966446,40,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,40,0,0
+1747219966487,37,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,36,0,0
+1747219966524,36,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,36,0,0
+1747219966561,38,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,38,0,0
+1747219967132,79,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,79,0,2
+1747219967212,52,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,52,0,0
+1747219967265,51,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,51,0,0
+1747219967316,45,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,45,0,0
+1747219967363,40,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,40,0,0
+1747219967404,44,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,44,0,0
+1747219967449,85,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,85,0,0
+1747219967534,62,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,62,0,0
+1747219967597,65,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,65,0,0
+1747219967663,45,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,45,0,0
+1747219968135,74,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,74,0,2
+1747219968210,40,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,40,0,0
+1747219968251,78,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,78,0,0
+1747219968330,36,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,36,0,0
+1747219968368,37,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,37,0,0
+1747219968406,37,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,37,0,0
+1747219968444,97,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,97,0,0
+1747219968542,43,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,43,0,0
+1747219968585,48,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,48,0,0
+1747219968634,37,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,37,0,0
+1747219969136,54,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,54,0,2
+1747219969190,52,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,52,0,0
+1747219969242,41,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,41,0,0
+1747219969283,37,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,36,0,0
+1747219969320,42,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,42,0,0
+1747219969362,49,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,48,0,0
+1747219969411,40,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,40,0,0
+1747219969452,35,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,35,0,0
+1747219969488,40,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,39,0,0
+1747219969528,41,Get Statistics,500,Internal Server Error,Statistics Endpoint Test 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",313,130,1,1,http://localhost:3000/api/statistics,41,0,0
