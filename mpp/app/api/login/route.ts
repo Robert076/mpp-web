@@ -1,4 +1,3 @@
-import { ErrorMessages } from "@/enums/ErrorMessages";
 import { NextResponse } from "next/server";
 import { Pool } from "pg";
 import bcrypt from "bcrypt";
@@ -25,20 +24,13 @@ export async function POST(request: Request) {
       );
     }
 
-    const checkUserQuery = `SELECT * FROM "User" WHERE username = $1`;
-    const userRes = await pool.query(checkUserQuery, [username]);
+    const userRes = await pool.query(
+      `SELECT * FROM "User" WHERE username = $1`,
+      [username]
+    );
     const user = userRes.rows[0];
 
-    if (!user) {
-      return NextResponse.json(
-        { error: "Invalid username or password" },
-        { status: 401 }
-      );
-    }
-
-    const passwordMatch = await bcrypt.compare(password, user.hashed_password);
-
-    if (!passwordMatch) {
+    if (!user || !(await bcrypt.compare(password, user.hashed_password))) {
       return NextResponse.json(
         { error: "Invalid username or password" },
         { status: 401 }
@@ -51,7 +43,17 @@ export async function POST(request: Request) {
       { expiresIn: "8h" }
     );
 
-    return NextResponse.json({ message: "Login successful", token });
+    const response = NextResponse.json({ message: "Login successful" });
+
+    response.cookies.set("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      maxAge: 60 * 60 * 8, // 8h
+    });
+
+    return response;
   } catch (error) {
     console.error("Login error:", error);
     return NextResponse.json(
