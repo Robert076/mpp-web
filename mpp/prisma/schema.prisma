@@ -17,6 +17,8 @@ model Gun {
   effectiveRange Int?
   manufacturerId Int?
   manufacturer   Manufacturer? @relation(fields: [manufacturerId], references: [id])
+  userId         Int
+  user           User?         @relation(fields: [userId], references: [id])
 }
 
 model Manufacturer {
@@ -24,4 +26,11 @@ model Manufacturer {
   name        String
   description String @default("No description provided")
   guns        Gun[]
+}
+
+model User {
+  id              Int    @id @default(autoincrement())
+  username        String @unique
+  hashed_password String
+  guns            Gun[]
 }

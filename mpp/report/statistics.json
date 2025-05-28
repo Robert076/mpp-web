@@ -1,0 +1,34 @@
+{
+  "Get Gun Statistics" : {
+    "transaction" : "Get Gun Statistics",
+    "sampleCount" : 5000,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 86.53899999999997,
+    "medianResTime" : 84.0,
+    "minResTime" : 10.0,
+    "maxResTime" : 579.0,
+    "pct1ResTime" : 121.0,
+    "pct2ResTime" : 142.0,
+    "pct3ResTime" : 252.0,
+    "throughput" : 293.15196998123827,
+    "receivedKBytesPerSec" : 15827.629848000703,
+    "sentKBytesPerSec" : 38.3616835717636
+  },
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 5000,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 86.53899999999997,
+    "medianResTime" : 84.0,
+    "minResTime" : 10.0,
+    "maxResTime" : 579.0,
+    "pct1ResTime" : 121.0,
+    "pct2ResTime" : 142.0,
+    "pct3ResTime" : 252.0,
+    "throughput" : 293.15196998123827,
+    "receivedKBytesPerSec" : 15827.629848000703,
+    "sentKBytesPerSec" : 38.3616835717636
+  }
+}
