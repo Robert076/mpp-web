@@ -1,13 +1,23 @@
-import { signOut } from "@/auth";
+"use client";
 
 export function SignOut() {
+  async function handleSignOut(event: React.FormEvent) {
+    event.preventDefault();
+
+    const res = await fetch("/api/logout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (res.ok) {
+      window.location.href = "/login";
+    } else {
+      alert("Failed to log out");
+    }
+  }
+
   return (
-    <form
-      action={async () => {
-        "use server";
-        await signOut({ redirectTo: "/login" });
-      }}
-    >
+    <form onSubmit={handleSignOut}>
       <button
         type="submit"
         style={{

@@ -3,7 +3,7 @@ import { Bar, BarChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 
 
 const CaliberChart: React.FC<CaliberChartDataProps> = ({ data }) => {
   return (
-    <ResponsiveContainer width="30%" minHeight={400}>
+    <ResponsiveContainer width="90%" minHeight={400}>
       <BarChart data={data}>
         <CartesianGrid stroke="rgba(0, 0, 0, 0.1)" />
         <XAxis

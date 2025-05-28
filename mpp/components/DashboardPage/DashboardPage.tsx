@@ -12,15 +12,9 @@ import {
   handleDeleteManufacturer,
   handleGunSelect,
   handleManufacturerSelect,
-  handleHighlightedBig,
-  handleHighlightedSmall,
   handleNextPage,
   handlePageChange,
   handlePreviousPage,
-  sortByCaliberAsc,
-  sortByCaliberDesc,
-  sortByNameAsc,
-  sortByNameDesc,
   getCaliberRepartization,
   getCaliberDataForCaliberChart,
   filterGunsByRifleCategory,
@@ -29,7 +23,6 @@ import {
   getSelectedGun,
   getSelectedManufacturer,
   getDisplayedManufacturers,
-  sortManufacturersByNameAscending,
 } from "@/helpers/helpers";
 import DeleteGunForm from "../Forms/DeleteGunForm/DeleteGunForm";
 import NavigationButtons from "../NavigationButtons/NavigationButtons";
@@ -40,6 +33,7 @@ import AddManufacturerForm from "../Forms/AddManufacturerForm/AddManufacturerFor
 import ManufacturerComponent from "../ManufacturerComponent/ManufacturerComponent";
 import UpdateManufacturerForm from "../Forms/UpdateManufacturerForm/UpdateManufacturerForm";
 import DeleteManufacturerForm from "../Forms/DeleteManufacturerForm/DeleteManufacturerForm";
+import router from "next/router";
 
 export default function DashboardPage() {
   const [isOpenAddGun, setIsOpenAddGun] = useState(false);
@@ -102,6 +96,13 @@ export default function DashboardPage() {
     };
 
     fetchGuns();
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+    }
   }, []);
 
   useEffect(() => {
