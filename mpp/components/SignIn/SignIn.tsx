@@ -35,6 +35,7 @@ export default function SignIn() {
         borderRadius: "8px",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between",
         gap: "12px",
       }}
     >
@@ -45,7 +46,7 @@ export default function SignIn() {
         onChange={(e) => setUsername(e.target.value)}
         required
         style={{
-          height: "35px",
+          height: "30px",
           padding: "0 12px",
           borderRadius: "5px",
           border: "none",
@@ -59,7 +60,7 @@ export default function SignIn() {
         onChange={(e) => setPassword(e.target.value)}
         required
         style={{
-          height: "35px",
+          height: "30px",
           padding: "0 12px",
           borderRadius: "5px",
           border: "none",
