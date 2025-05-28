@@ -6,7 +6,7 @@ The task given by the teacher:
 
 ---
 
-### 🧩 What technologies I used:
+## 🧩 What technologies I used:
 - NextJS
 - Docker
 - AWS
@@ -15,7 +15,7 @@ The task given by the teacher:
 
 ---
 
-### 🌎 What I features implemented
+## 🌎 What features I implemented
 
 - A dashboard-style **web application** that lets users register and make `CRUD` operations on Guns and Gun manufacturers 
 - A completely working login system based on credentials, using JWT and cookies for safety
@@ -30,7 +30,7 @@ The task given by the teacher:
 
 ---
 
-### 🏁 What I liked most about this project
+## 🏁 What I liked most about this project
 
 I liked the fact that we had the freedom to choose what framework to work in, what type of application to make, what entities to choose, and all the functionalities that were demanded from us to implement could be done whatever you pick.
 
