@@ -82,9 +82,6 @@ export default function SignIn() {
       >
         Sign In
       </button>
-      {username}
-      <br></br>
-      {password}
     </form>
   );
 }
