@@ -8,6 +8,7 @@ The task given by the teacher:
 
 ## 🧩 What technologies I used:
 - NextJS
+- PostgreSQL
 - Docker
 - AWS
 
