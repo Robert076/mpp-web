@@ -1,5 +1,7 @@
 "use client";
 
+import toast from "react-hot-toast";
+
 export function TwoFaButton() {
   async function handleToggle2FA(event: React.FormEvent) {
     event.preventDefault();
@@ -11,7 +13,7 @@ export function TwoFaButton() {
 
     if (res.ok) {
       const data = await res.json();
-      alert(`2FA is now ${data.has_2fa_enabled ? "enabled" : "disabled"}`);
+      toast.success(`2FA is now ${data.has_2fa_enabled ? "enabled" : "disabled"}`);
     } else {
       alert("Failed to toggle 2FA");
     }
