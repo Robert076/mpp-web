@@ -18,7 +18,6 @@ export default function SignIn() {
     const data = await res.json();
 
     if (res.ok) {
-      localStorage.setItem("token", data.token);
       window.location.href = "/dashboard";
     } else {
       alert(data.error || "Login failed");
