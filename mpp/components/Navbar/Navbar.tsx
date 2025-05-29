@@ -2,6 +2,7 @@ import React from "react";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { SignOut } from "../SignOut/SignOut";
+import { TwoFaButton } from "../2FaButton/2FaButton";
 
 const JWT_SECRET = process.env.JWT_SECRET || "Supersecretkey";
 
@@ -55,6 +56,7 @@ async function Navbar() {
           alignItems: "center",
         }}
       >
+        <TwoFaButton />
         <SignOut />
       </div>
     </div>
