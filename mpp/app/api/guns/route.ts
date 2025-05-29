@@ -83,8 +83,8 @@ export async function POST(request: Request) {
       );
     }
 
-    const checkQuery = `SELECT * FROM "Gun" WHERE name=$1`;
-    const checkRes = await pool.query(checkQuery, [name]);
+    const checkQuery = `SELECT * FROM "Gun" WHERE name=$1 AND "userId"=$2`;
+    const checkRes = await pool.query(checkQuery, [name, userId]);
     if (checkRes.rows.length > 0) {
       return NextResponse.json(
         { error: `Gun with the name ${name} already exists` },

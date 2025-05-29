@@ -29,9 +29,13 @@ model Manufacturer {
 }
 
 model User {
-  id              Int      @id @default(autoincrement())
-  username        String   @unique
-  hashed_password String
-  createdAt       DateTime @default(now())
-  guns            Gun[]
+  id                     Int       @id @default(autoincrement())
+  username               String    @unique
+  hashed_password        String
+  email                  String
+  has_2fa_enabled        Boolean
+  two_fa_code            String? // nullable since code exists only temporarily
+  two_fa_code_expires_at DateTime? // nullable and type DateTime
+  createdAt              DateTime  @default(now())
+  guns                   Gun[]
 }

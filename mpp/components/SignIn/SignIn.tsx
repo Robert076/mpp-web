@@ -5,8 +5,10 @@ import { useState } from "react";
 export default function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [code, setCode] = useState("");
+  const [requires2FA, setRequires2FA] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
 
     const res = await fetch("/api/login", {
@@ -17,17 +19,36 @@ export default function SignIn() {
 
     const data = await res.json();
 
-    if (res.ok) {
-      localStorage.setItem("token", data.token);
+    if (res.ok && data.requires2FA) {
+      setRequires2FA(true); // Prompt for 2FA code
+    } else if (res.ok) {
       window.location.href = "/dashboard";
     } else {
       alert(data.error || "Login failed");
     }
   }
 
+  async function handleVerify2FA(e: React.FormEvent) {
+    e.preventDefault();
+
+    const res = await fetch("/api/verify-2fa", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, code }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      window.location.href = "/dashboard";
+    } else {
+      alert(data.error || "Invalid or expired 2FA code");
+    }
+  }
+
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={requires2FA ? handleVerify2FA : handleLogin}
       style={{
         backgroundColor: "#2b3137",
         width: "240px",
@@ -35,7 +56,6 @@ export default function SignIn() {
         borderRadius: "8px",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
         gap: "12px",
       }}
     >
@@ -45,6 +65,7 @@ export default function SignIn() {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         required
+        disabled={requires2FA}
         style={{
           height: "30px",
           padding: "0 12px",
@@ -59,6 +80,7 @@ export default function SignIn() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
+        disabled={requires2FA}
         style={{
           height: "30px",
           padding: "0 12px",
@@ -67,6 +89,24 @@ export default function SignIn() {
           fontSize: "14px",
         }}
       />
+
+      {requires2FA && (
+        <input
+          type="text"
+          placeholder="Enter 2FA code"
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
+          required
+          style={{
+            height: "30px",
+            padding: "0 12px",
+            borderRadius: "5px",
+            border: "none",
+            fontSize: "14px",
+          }}
+        />
+      )}
+
       <button
         type="submit"
         style={{
@@ -80,7 +120,7 @@ export default function SignIn() {
           fontWeight: "600",
         }}
       >
-        Sign In
+        {requires2FA ? "Verify 2FA" : "Sign In"}
       </button>
     </form>
   );

@@ -14,11 +14,11 @@ const pool = new Pool({
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { username, password } = body;
+    const { username, password, email } = body;
 
     if (!username || !password) {
       return NextResponse.json(
-        { error: "Missing username or password" },
+        { error: "Missing username or password or email" },
         { status: 400 }
       );
     }
@@ -36,14 +36,14 @@ export async function POST(request: Request) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const insertUserQuery = `INSERT INTO "User" (username, hashed_password) VALUES ($1, $2) RETURNING id`;
-    const insertUserParams = [username, hashedPassword];
+    const insertUserQuery = `INSERT INTO "User" (username, hashed_password, email, has_2fa_enabled) VALUES ($1, $2, $3, $4) RETURNING id`;
+    const insertUserParams = [username, hashedPassword, email, false];
     const result = await pool.query(insertUserQuery, insertUserParams);
 
     const userId = result.rows[0].id;
 
     return NextResponse.json(
-      { message: "User created successfully", user: { id: userId, username } },
+      { message: "User created successfully", user: { id: userId, username, email } },
       { status: 201 }
     );
   } catch (error) {
