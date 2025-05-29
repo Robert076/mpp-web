@@ -26,6 +26,7 @@ The task given by the teacher:
 - To make the application more secure it makes use of environment variables which are **NOT** pushed here. Nothing important is hardcoded
 - Tests for the backend endpoints
 - Used Faker to populate a lot of entries and stress test the application
+- 2 factor authentication
   
 ... and many more 😁
 
