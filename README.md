@@ -1,4 +1,4 @@
-# 🚀 My project for MPP - UBB Cluj
+# 🚀 My project for MPP 
 
 The task given by the teacher:
 - select an ***entity*** (My friend Mihai picked *Guns* for me)
